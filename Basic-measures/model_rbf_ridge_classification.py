@@ -2,7 +2,7 @@
 # RBF (Random Features) + Ridge classification
 ######################################################
 
-import time
+
 import argparse
 import pandas as pd
 from sklearn.kernel_approximation import RBFSampler
@@ -28,7 +28,8 @@ args = parser.parse_args()
 
 model = 'RBF (Random Features) + Ridge Classification'
 file_model_name = 'RBF_and_ridge_classification'
-output_file = path + f'{file_model_name}_{args.dataset}_cv_{args.cv}.txt'
+file_model_name_arg = f'{file_model_name}_{args.dataset}_cv_{args.cv}'
+output_file = path + file_model_name_arg + '.txt'
 
 # Get Data
 X_train, y_train, X_test, y_test = get_data(args.dataset)
@@ -109,11 +110,11 @@ for n_components in n_components_list:
 results_df = pd.DataFrame(results)
 
 # Write the results to a file
-results_df.to_csv(output_file, index=True)
+results_df.to_csv(output_file, index=False)
 
 ## save the model 
 
 # Save the grid search object to a file
-joblib.dump(grid_search, path_for_joblib+f'grid_search_{file_model_name}.pkl')
+joblib.dump(grid_search, path_for_joblib+f'grid_search_{file_model_name_arg}.pkl')
 
 print(f"Results written to {output_file}")

@@ -9,20 +9,36 @@ import numpy as np
 ######################################################################
 #                        For  KSVM             
 ######################################################################
-param_grid_ksvm = {
-    'svm__C': [0.01, 0.1, 1, 10, 100, 1000], # 0.1 or 1 && 1000 or 10000
-    'svm__gamma': [0.01, 0.1, 1, 1.5]
-}
+
+def function_param_grid_ksvm(dimension:int, K:int, bias: int, base: int):
+    start = -K
+    end = K + bias 
+    num = 1
+    gamma_space = np.logspace(start, end, num, base=base) / dimension
+
+    return {
+        'svm__C' : np.logspace(-2, 4, num, base=10),
+        'svm__gamma': gamma_space,
+        
+    }
+
+# Number from random features
+n_components_list = [10, 20, 50, 100, 200, 500, 1000]
 
 ######################################################################
 #                        For  Nyström + Ridge Classification              
 ######################################################################
-param_grid_nystrom_ridge_classification = {
-    'nystroem__gamma': [0.01, 0.1, 1.0, 1.5],
-    'ridge_classification__alpha': [0.01, 0.1, 1.0, 10.0]
-}
-# Number of nystroem components 
-n_components_list = [10, 20, 50, 100, 200, 500, 1000]
+
+def function_param_grid_nystrom_ridge_classification(dimension:int, K:int, bias: int, base: int):
+    start = -K
+    end = K + bias 
+    num = 5
+    gamma_space = np.logspace(start, end, num, base=base) / dimension
+
+    return {
+        'nystroem__gamma' : gamma_space,
+        'ridge_classification__alpha' : np.logspace(-4, 1, 5, base=10)
+    }
 
 
 ######################################################################

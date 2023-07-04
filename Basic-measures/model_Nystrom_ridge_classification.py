@@ -1,8 +1,6 @@
 ################################################################
 # Nyström + Ridge classification
 ######################################################
-
-import time
 import argparse
 import pandas as pd
 from sklearn.kernel_approximation import Nystroem
@@ -11,10 +9,11 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import accuracy_score
+import joblib
 
 from get_data import get_data
 from params import n_components_list
-from config import path
+from config import path, path_for_joblib
 from params import function_param_grid_nystrom_ridge_classification
 
 
@@ -27,8 +26,9 @@ parser.add_argument('--cv', type=int, default=5, help='Number of CV splits (defa
 args = parser.parse_args()
 
 model = 'Nyström + Ridge Classification'
-output_file = path + f'{model}_{args.dataset}_cv_{args.cv}.txt'
-
+file_model_name = 'Nystrom_and_ridge_classification'
+file_model_name_arg = f'{file_model_name}_{args.dataset}_cv_{args.cv}'
+output_file = path + file_model_name_arg + '.txt'
 
 # Get Data
 X_train, y_train, X_test, y_test = get_data(args.dataset)
@@ -51,6 +51,8 @@ Model: {model}
 \nparam_grid (k= {K}, bias = {5}, dimension = {dimension} base = {base}) = \n{param_grid}
 {'-'*20}
 '''
+print(head_title)
+
 ## Data preprocessing
 results = []
 for n_components in n_components_list:
@@ -71,32 +73,16 @@ for n_components in n_components_list:
     ])
 
     # Create the GridSearchCV object
-    grid_search = GridSearchCV(pipeline, param_grid, cv=args.cv, n_jobs=args.n_jobs, verbose=3)
+    grid_search = GridSearchCV(pipeline, param_grid, cv=args.cv, n_jobs=args.n_jobs)
     # Fit the grid search on the data
     grid_search.fit(X_train, y_train)
 
-    # Retrain with best parameters
-    # Create the Nystroem approximation
-    nystroem = Nystroem(kernel='rbf', gamma=grid_search.best_params_['nystroem__gamma'],  n_components= n_components)
-
-    # Create the Ridge classifier
-    ridge = RidgeClassifier(alpha= grid_search.best_params_['ridge_classification__alpha'])
-
-    # Create the pipeline
-    pipeline = Pipeline([
-        ('scaler', scaler),
-        ('nyström', nystroem),
-        ('ridge_regression', ridge)
-    ])
-
-    start_time = time.time()
-    # Fit the pipeline on the training data
-    pipeline.fit(X_train, y_train)
-    training_time = time.time() - start_time
+    # Get the best pipeline from the grid search
+    best_pipeline = grid_search.best_estimator_
 
     # Predict with X_test
-    y_pred = pipeline.predict(X_test)
-
+    y_pred = best_pipeline.predict(X_test)
+    
     # Calculate the accuracy score on the test data
     accuracy = accuracy_score(y_test, y_pred)
 
@@ -104,7 +90,7 @@ for n_components in n_components_list:
     print(f'Final scores for n componentes: {n_components}')
     print("Best Parameters: ", grid_search.best_params_)
     print("Best Accuracy in CV: ", grid_search.best_score_)
-    print("Training Time: ", training_time)
+    print("Training Time: ", grid_search.refit_time_)
     print("Accuracy in test: ", accuracy)
 
     # Store the results in a dictionary
@@ -112,8 +98,9 @@ for n_components in n_components_list:
         'n_components': n_components,
         'best_params': grid_search.best_params_,
         'best_accuracy_cv': grid_search.best_score_,
-        'training_time': training_time,
-        'accuracy_test': accuracy
+        'training_time': grid_search.refit_time_,
+        'accuracy_test': accuracy,
+        **grid_search.cv_results_ 
     }
 
     # Append the result to the results list
@@ -123,8 +110,11 @@ for n_components in n_components_list:
 results_df = pd.DataFrame(results)
 
 # Write the results to a file
-results_df.to_csv(output_file, index=True)
-
+results_df.to_csv(output_file, index=False)
 print(f"Results written to {output_file}")
+
+# Save the grid search object to a file
+joblib.dump(grid_search, path_for_joblib+f'grid_search_{file_model_name_arg}.pkl')
+
 
 

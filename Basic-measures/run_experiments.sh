@@ -38,6 +38,8 @@ echo "Modelo KVSM" "$(date -u)"
 python3 model_ksvm.py "$dataset" --cv "$cv" --n_jobs "$njobs" > ./results/verboses/ksvm_"$dataset"_cv_5.txt
 echo ""
 echo "Modelo Nystrom "$(date -u)"
+# python3 model_Nystrom_ridge_classification.py a9a --cv 2 --n_jobs 10
+
 python3 model_Nystrom_ridge_classification.py "$dataset" --cv "$cv" --n_jobs "$njobs" > ./results/verboses/Nystrom_ridge_classification_"$dataset"_cv_5.txt
 echo ""
 echo "Modelo rbf  "$(date -u)"
