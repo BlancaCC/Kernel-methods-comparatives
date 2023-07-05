@@ -13,7 +13,7 @@ import numpy as np
 def function_param_grid_ksvm(dimension:int, K:int, bias: int, base: int):
     start = -K
     end = K + bias 
-    num = 1
+    num = 5
     gamma_space = np.logspace(start, end, num, base=base) / dimension
 
     return {
@@ -55,3 +55,32 @@ def function_param_grid_rbf_ridge_classification(dimension:int, K:int, bias: int
         'rbf_sampler__gamma' : gamma_space,
         'ridge_classification__alpha' : np.logspace(-4, 2, 5, base=10)
     }
+
+
+#############################################################################
+#                   Neural Network Classification 
+#############################################################################
+def get_neural_networks_sizes(size: int, percent:float, maximum_unit:int, maximum_layers:int):
+    '''
+    return a list of tuple of neural networks
+    '''
+    neural_network_sizes = []
+    for number_of_layers in range(1,1+maximum_layers):
+        units = int(np.power(min( size*percent, maximum_unit ), 1/number_of_layers))
+        neural_network_sizes.append(tuple([units]*number_of_layers))
+    return neural_network_sizes
+
+
+def function_param_grid_neural_classification( K:int, bias:int,  num: int , base: int):
+    start = -K
+    end = K + bias 
+    alpha_grid = np.logspace(start, end, num, base=base) 
+
+    return {
+        'mlp_classification__alpha' : alpha_grid
+    }
+
+if __name__ == '__main__':
+    units  = get_neural_networks_sizes(18000, 1.3, 19000, 3 )
+    print(units)
+    print(function_param_grid_neural_classification(6, 1, 14, 10))
