@@ -9,7 +9,6 @@ import numpy as np
 ######################################################################
 #                        For  KSVM             
 ######################################################################
-
 def function_param_grid_ksvm(dimension:int, K:int, bias: int, base: int):
     start = -K
     end = K + bias 
@@ -37,8 +36,23 @@ def function_param_grid_nystrom_ridge_classification(dimension:int, K:int, bias:
 
     return {
         'nystroem__gamma' : gamma_space,
-        'ridge_classification__alpha' : np.logspace(-4, 1, 5, base=10)
+        'svm__C' : np.logspace(-2, 4, num, base=10),
+      }
+
+
+######################################################################
+#                        For  Nyström + SVM Classification              
+######################################################################
+
+def function_param_grid_nystrom_svm_classification(dimension:int, K:int, bias: int, base: int,  num:int):
+    start = -K
+    end = K + bias 
+    gamma_space = np.logspace(start, end, num, base=base) / dimension
+    return {
+        'nystroem__gamma' : gamma_space,
+        'svm__C' : np.logspace(-4, 2, num, base=10)
     }
+
 
 
 ######################################################################
@@ -80,7 +94,3 @@ def function_param_grid_neural_classification( K:int, bias:int,  num: int , base
         'mlp_classification__alpha' : alpha_grid
     }
 
-if __name__ == '__main__':
-    units  = get_neural_networks_sizes(18000, 1.3, 19000, 3 )
-    print(units)
-    print(function_param_grid_neural_classification(6, 1, 14, 10))
