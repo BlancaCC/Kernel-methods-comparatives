@@ -11,9 +11,7 @@ fi
 if [ $# -ge 2 ]; then
   dataset=$2
 else
-    echo "Arguments must be: run_experiment njobs datasets"
-    echo "For example: ./run_experiments 10 a9a"
-    exit 1
+    dataset=a9a
 fi
 
 if [ $# -ge 3 ]; then
@@ -31,7 +29,6 @@ if ! [[ " ${valid_datasets[*]} " == *" ${dataset} "* ]]; then
   printf '%s\n' "${valid_datasets[@]}"
   exit 1
 fi
-TZ='Europe/Madrid'
 
 source ./bcano_python_ml/bin/activate
 echo "Modelo KVSM" "$(date -u)"
@@ -39,10 +36,17 @@ echo "Modelo KVSM" "$(date -u)"
 
 echo ""
 echo "Modelo Nystrom" "$(date -u)"
-python3 model_Nystrom_ridge_classification.py "$dataset" --cv "$cv" --n_jobs "$njobs" > ./results/verboses/Nystrom_ridge_classification_"$dataset"_cv_"$cv".txt
+#python3 model_Nystrom_ridge_classification.py "$dataset" --cv "$cv" --n_jobs "$njobs" > ./results/verboses/Nystrom_ridge_classification_"$dataset"_cv_"$cv".txt
 echo ""
 echo "Modelo rbf"  "$(date -u)"
 #python3 model_rbf_ridge_classification.py "$dataset" --cv "$cv" --n_jobs "$njobs" > ./results/verboses/rbf_ridge_classification_"$dataset"_cv_"$cv".txt
 echo ""
 echo "Modelo mlp classification" "$(date -u)"
-python3 model_mlp_classification.py "$dataset" --cv "$cv" --n_jobs "$njobs" > ./results/verboses/mlp_classification_"$dataset"_cv_"$cv".txt
+#python3 model_mlp_classification.py "$dataset" --cv "$cv" --n_jobs "$njobs" > ./results/verboses/mlp_classification_"$dataset"_cv_"$cv".txt
+echo ""
+echo "Modelo rbf + svm classification" "$(date -u)"
+python3 model_rbf_svm_classification.py "$dataset" --cv "$cv" --n_jobs "$njobs" > ./results/verboses/rbf_svm_classification_"$dataset"_cv_"$cv".txt
+echo ""
+echo "Modelo Nystrom svm" "$(date -u)"
+python3 model_Nystrom_svm.py "$dataset" --cv "$cv" --n_jobs "$njobs" > ./results/verboses/Nystrom_svm_classification_"$dataset"_cv_"$cv".txt
+echo ""

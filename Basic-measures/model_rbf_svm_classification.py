@@ -1,10 +1,10 @@
 ################################################################
-# RBF (Random Features) + Ridge classification
+# RBF (Random Features) + SVM classification
 ######################################################
 import argparse
 import pandas as pd
 from sklearn.kernel_approximation import RBFSampler
-from sklearn.linear_model import RidgeClassifier
+from sklearn.svm import SVC
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import GridSearchCV
@@ -14,7 +14,8 @@ import joblib
 from get_data import get_data
 from params import n_components_list
 from config import path, path_for_joblib
-from params import function_param_grid_rbf_ridge_classification
+from params import function_param_grid_rbf_svm_classification
+
 
 # Parse command-line arguments
 parser = argparse.ArgumentParser(description='Model training and evaluation')
@@ -23,8 +24,8 @@ parser.add_argument('--n_jobs', type=int, default=1, help='Number of parallel jo
 parser.add_argument('--cv', type=int, default=5, help='Number of CV splits (default: 5)')
 args = parser.parse_args()
 
-model = 'RBF (Random Features) + Ridge Classification'
-file_model_name = 'RBF_and_ridge_classification'
+model = 'RBF (Random Features) + SVM'
+file_model_name = 'RBF_and_svm_classification'
 file_model_name_arg = f'{file_model_name}_{args.dataset}_cv_{args.cv}'
 output_file = path + file_model_name_arg + '.csv'
 
@@ -35,8 +36,8 @@ dimension = X_train.shape[1]
 K = 5
 bias = -3
 base = 4
-
-param_grid = function_param_grid_rbf_ridge_classification(dimension, K, bias, base)
+num = 5
+param_grid = function_param_grid_rbf_svm_classification(dimension, K, bias, base, num)
 
 # print information 
 head_title = f'''
@@ -45,7 +46,8 @@ Model: {model}
 
 \tDataset: {args.dataset} \tCV: {args.cv} \tn_jobs: {args.n_jobs}
 \nnumber of components to test: {n_components_list}
-\nparam_grid (k= {K}, bias = {5}, dimension = {dimension} base = {base}) = \n{param_grid}
+\nparam_grid (k= {K}, bias = {5}, dimension = {dimension} base = {base}) 
+= \n{param_grid}
 {'-'*20}
 '''
 print(head_title)
@@ -53,20 +55,14 @@ print(head_title)
 ## Data preprocessing
 results = []
 for n_components in n_components_list:
-    # Create the scaler
-    scaler = StandardScaler()
-
     # Create the RBF (Random Features) approximation
     rbf_sampler = RBFSampler(n_components= n_components)
 
-    # Create the Ridge classifier
-    ridge = RidgeClassifier()
-
     # Create the pipeline
     pipeline = Pipeline([
-        ('scaler', scaler),
+        ('scaler', StandardScaler()),
         ('rbf_sampler', rbf_sampler),
-        ('ridge_classification', ridge)
+        ('svm', SVC())
     ])
 
     # Create the GridSearchCV object
@@ -102,6 +98,9 @@ for n_components in n_components_list:
 
     # Append the result to the results list
     results.append(result)
+    # Save the grid search object to a file
+    joblib.dump(grid_search, path_for_joblib+f'grid_search_{file_model_name_arg}_n_component_{n_components}.pkl')
+
 
 # Create a DataFrame from the results list
 results_df = pd.DataFrame(results)
@@ -110,8 +109,4 @@ results_df = pd.DataFrame(results)
 results_df.to_csv(output_file, index=False)
 
 ## save the model 
-
-# Save the grid search object to a file
-joblib.dump(grid_search, path_for_joblib+f'grid_search_{file_model_name_arg}.pkl')
-
 print(f"Results written to {output_file}")

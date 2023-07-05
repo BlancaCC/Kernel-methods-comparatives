@@ -59,15 +59,28 @@ def function_param_grid_nystrom_svm_classification(dimension:int, K:int, bias: i
 #                        For  RBF + Ridge Classification              
 ######################################################################
 
-def function_param_grid_rbf_ridge_classification(dimension:int, K:int, bias: int, base: int):
+def function_param_grid_rbf_ridge_classification(dimension:int, K:int, bias: int, base: int, num = 5):
     start = -K
     end = K + bias 
-    num = 5
-    gamma_space = np.logspace(start, end, num, base=base) / dimension
-
+    gamma_space = np.logspace(start, end, num, base=base) / dimension,
     return {
         'rbf_sampler__gamma' : gamma_space,
         'ridge_classification__alpha' : np.logspace(-4, 2, 5, base=10)
+    }
+
+
+
+######################################################################
+#                        For  rbf + SVM Classification              
+######################################################################
+
+def function_param_grid_rbf_svm_classification(dimension:int, K:int, bias: int, base: int,  num:int):
+    start = -K
+    end = K + bias 
+    gamma_space = np.logspace(start, end, num, base=base) / dimension
+    return {
+        'rbf_sampler__gamma' : gamma_space,
+        'svm__C' : np.logspace(-4, 2, num, base=10)
     }
 
 

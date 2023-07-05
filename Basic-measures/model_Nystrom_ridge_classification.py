@@ -28,7 +28,7 @@ args = parser.parse_args()
 model = 'Nyström + Ridge Classification'
 file_model_name = 'Nystrom_and_ridge_classification'
 file_model_name_arg = f'{file_model_name}_{args.dataset}_cv_{args.cv}'
-output_file = path + file_model_name_arg + '.txt'
+output_file = path + file_model_name_arg + '.csv'
 
 # Get Data
 X_train, y_train, X_test, y_test = get_data(args.dataset)
