@@ -35,12 +35,14 @@ TZ='Europe/Madrid'
 
 source ./bcano_python_ml/bin/activate
 echo "Modelo KVSM" "$(date -u)"
-python3 model_ksvm.py "$dataset" --cv "$cv" --n_jobs "$njobs" > ./results/verboses/ksvm_"$dataset"_cv_5.txt
-echo ""
-echo "Modelo Nystrom "$(date -u)"
-# python3 model_Nystrom_ridge_classification.py a9a --cv 2 --n_jobs 10
+#python3 model_ksvm.py "$dataset" --cv "$cv" --n_jobs "$njobs" > ./results/verboses/ksvm_"$dataset"_cv_"$cv".txt
 
-python3 model_Nystrom_ridge_classification.py "$dataset" --cv "$cv" --n_jobs "$njobs" > ./results/verboses/Nystrom_ridge_classification_"$dataset"_cv_5.txt
 echo ""
-echo "Modelo rbf  "$(date -u)"
-python3 model_rbf_ridge_classification.py "$dataset" --cv "$cv" --n_jobs "$njobs" > ./results/verboses/rbf_ridge_classification_a9a_cv_5.txt
+echo "Modelo Nystrom" "$(date -u)"
+python3 model_Nystrom_ridge_classification.py "$dataset" --cv "$cv" --n_jobs "$njobs" > ./results/verboses/Nystrom_ridge_classification_"$dataset"_cv_"$cv".txt
+echo ""
+echo "Modelo rbf"  "$(date -u)"
+#python3 model_rbf_ridge_classification.py "$dataset" --cv "$cv" --n_jobs "$njobs" > ./results/verboses/rbf_ridge_classification_"$dataset"_cv_"$cv".txt
+echo ""
+echo "Modelo mlp classification" "$(date -u)"
+python3 model_mlp_classification.py "$dataset" --cv "$cv" --n_jobs "$njobs" > ./results/verboses/mlp_classification_"$dataset"_cv_"$cv".txt
