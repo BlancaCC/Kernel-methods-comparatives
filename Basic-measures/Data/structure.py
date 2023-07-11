@@ -34,9 +34,9 @@ data_structure = {
         'n_features': 123,
         'type': 'classification'
     },
-    'cad-rna' : {
-        'train' : 'cod-rna',
-        'test' : 'cod-rna.t',
+    'Diabetes' : {
+        'train' : 'diabetes',
+        'test' : 0.3,
         'n_features': 8,
         'type': 'classification'
     },

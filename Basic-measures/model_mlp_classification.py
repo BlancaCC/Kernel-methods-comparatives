@@ -34,6 +34,9 @@ output_file = path + file_model_name_arg + '.csv'
 X_train, y_train, X_test, y_test = get_data(args.dataset)
 
 size,dimension = X_train.shape
+
+n_components_list = list(filter(lambda x:x <= (1-1/args.cv)*size, n_components_list))
+
 K = 6
 bias = 1
 base = 10

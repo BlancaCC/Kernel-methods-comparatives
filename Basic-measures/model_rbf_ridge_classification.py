@@ -31,19 +31,23 @@ output_file = path + file_model_name_arg + '.csv'
 # Get Data
 X_train, y_train, X_test, y_test = get_data(args.dataset)
 
-dimension = X_train.shape[1]
+size,dimension = X_train.shape
+# for rbf n_components could be higher
+#n_components_list = list(filter(lambda x:x <= (1-1/args.cv)*size, n_components_list))
+
 K = 5
 bias = -3
 base = 4
-
-param_grid = function_param_grid_rbf_ridge_classification(dimension, K, bias, base)
+num = 5
+param_grid = function_param_grid_rbf_ridge_classification(dimension, K, bias, base, num)
 
 # print information 
 head_title = f'''
 {'-'*20}
 Model: {model} 
 
-\tDataset: {args.dataset} \tCV: {args.cv} \tn_jobs: {args.n_jobs}
+\tDataset: {args.dataset}  of shape({size,dimension})
+\tCV: {args.cv} \tn_jobs: {args.n_jobs}
 \nnumber of components to test: {n_components_list}
 \nparam_grid (k= {K}, bias = {5}, dimension = {dimension} base = {base}) = \n{param_grid}
 {'-'*20}
@@ -53,20 +57,14 @@ print(head_title)
 ## Data preprocessing
 results = []
 for n_components in n_components_list:
-    # Create the scaler
-    scaler = StandardScaler()
-
     # Create the RBF (Random Features) approximation
     rbf_sampler = RBFSampler(n_components= n_components)
 
-    # Create the Ridge classifier
-    ridge = RidgeClassifier()
-
     # Create the pipeline
     pipeline = Pipeline([
-        ('scaler', scaler),
+        ('scaler', StandardScaler()),
         ('rbf_sampler', rbf_sampler),
-        ('ridge_classification', ridge)
+        ('ridge_classification', RidgeClassifier())
     ])
 
     # Create the GridSearchCV object

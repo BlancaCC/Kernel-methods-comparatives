@@ -34,7 +34,9 @@ output_file = path + file_model_name_arg + '.csv'
 X_train, y_train, X_test, y_test = get_data(args.dataset)
 
 # hyperparameter
-dimension = X_train.shape[1]
+size,dimension = X_train.shape
+n_components_list = list(filter(lambda x:x <= (1-1/args.cv)*size, n_components_list))
+
 K = 5
 bias = -3
 base = 4
@@ -55,6 +57,7 @@ print(head_title)
 
 ## Data preprocessing
 results = []
+grid_search = None
 for n_components in n_components_list:
     # Create the Nystroem approximation
     nystroem = Nystroem(kernel='rbf', n_components= n_components)
@@ -99,8 +102,8 @@ for n_components in n_components_list:
 
     # Append the result to the results list
     results.append(result)
-    # Save the grid search object to a file
-    joblib.dump(grid_search, path_for_joblib+f'grid_search_{file_model_name_arg}_n_components_{n_components}.pkl')
+# Save the grid search object to a file
+joblib.dump(grid_search, path_for_joblib+f'grid_search_{file_model_name_arg}_n_components_{n_components}.pkl')
 
 
 # Create a DataFrame from the results list

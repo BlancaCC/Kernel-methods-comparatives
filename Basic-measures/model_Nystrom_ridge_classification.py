@@ -34,19 +34,23 @@ output_file = path + file_model_name_arg + '.csv'
 X_train, y_train, X_test, y_test = get_data(args.dataset)
 
 # hyperparameter
-dimension = X_train.shape[1]
+size,dimension = X_train.shape
+n_components_list = list(filter(lambda x:x <= (1-1/args.cv)*size, n_components_list))
+
 K = 5
 bias = -3
 base = 4
 
 param_grid = function_param_grid_nystrom_ridge_classification(dimension, K, bias, base)
+n_components_list = list(filter(lambda x:x <= (1-1/args.cv)*size, n_components_list))
 
 # print information 
 head_title = f'''
 {'-'*20}
 Model: {model} 
 
-\tDataset: {args.dataset} \tCV: {args.cv} \tn_jobs: {args.n_jobs}
+\tDataset: {args.dataset} of shape({size, dimension})
+\n\tCV: {args.cv} \tn_jobs: {args.n_jobs}
 \nnumber of components to test: {n_components_list}
 \nparam_grid (k= {K}, bias = {5}, dimension = {dimension} base = {base}) = \n{param_grid}
 {'-'*20}
@@ -55,7 +59,9 @@ print(head_title)
 
 ## Data preprocessing
 results = []
+grid_search = None
 for n_components in n_components_list:
+    print('-'*20+f'\nNos encontramos en la iteración {n_components}')
     # Create the scaler
     scaler = StandardScaler()
 
