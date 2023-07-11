@@ -63,6 +63,8 @@ print(head_title)
 results = []
 for hidden_layer_sizes in neural_networks_sizes:
     # Create Neural Network models 
+    # TODO: utilizar Early stopping 
+    # Utilizar transformer regresor 
     mlp = MLPClassifier(hidden_layer_sizes, 
                                 max_iter=10000)
 

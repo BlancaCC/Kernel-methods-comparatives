@@ -22,7 +22,7 @@ args = parser.parse_args()
 model = 'KSVM classification'
 file_model_name = 'KSVM_classification'
 file_model_name_arg = f'{file_model_name}_{args.dataset}_cv_{args.cv}'
-output_file = path + file_model_name_arg + '.csv'
+output_file = path + file_model_name_arg + '.txt'
 
 
 # Get Data
@@ -88,7 +88,7 @@ with open(output_file, 'w') as f:
     f.write(f"Best Parameters: {grid_search.best_params_}\n")
     f.write(f"Best Accuracy in CV: {grid_search.best_score_}\n")
     f.write(f"Training Time: {grid_search.refit_time_}\n")
-    f.write("Accuracy in test: {accuracy}\n")
+    f.write(f"Accuracy in test: {accuracy}\n")
     f.write(str(grid_search.cv_results_))
 
 print(f"Results written to {output_file}")
