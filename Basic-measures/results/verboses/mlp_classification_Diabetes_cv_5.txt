@@ -12,18 +12,18 @@ Model: Neural Networks
 --------------------
 
 Final scores hidden layer sizes: (644,)
-Best Parameters:  {'mlp_classification__alpha': 1.0}
-Best Accuracy in CV:  0.7801142263759087
-Training Time:  0.9442708492279053
-Accuracy in test:  0.7445887445887446
+Best Parameters:  {'mlp_classification__alpha': 0.0001}
+Best Accuracy in CV:  0.7449636552440291
+Training Time:  0.14500212669372559
+Accuracy in test:  0.8008658008658008
 Final scores hidden layer sizes: (25, 25)
-Best Parameters:  {'mlp_classification__alpha': 1.0}
-Best Accuracy in CV:  0.7764278296988577
-Training Time:  0.6617071628570557
-Accuracy in test:  0.7359307359307359
+Best Parameters:  {'mlp_classification__alpha': 0.0001}
+Best Accuracy in CV:  0.720699203876774
+Training Time:  0.01751708984375
+Accuracy in test:  0.7619047619047619
 Final scores hidden layer sizes: (8, 8, 8)
-Best Parameters:  {'mlp_classification__alpha': 1e-06}
-Best Accuracy in CV:  0.7691069574247145
-Training Time:  0.7665998935699463
-Accuracy in test:  0.6926406926406926
+Best Parameters:  {'mlp_classification__alpha': 0.0001}
+Best Accuracy in CV:  0.657528556593977
+Training Time:  0.020356178283691406
+Accuracy in test:  0.7402597402597403
 Results written to ./results/accuracy_time_stats/neural_network_classification_Diabetes_cv_5.csv

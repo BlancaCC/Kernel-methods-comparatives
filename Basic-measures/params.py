@@ -21,8 +21,24 @@ def function_param_grid_ksvm(dimension:int, K:int, bias: int, base: int):
         
     }
 
+
+######################################################################
+#                        For  Kernel ridge classification     
+######################################################################
+
+def function_param_grid_kernel_ridge_classification(dimension:int, K:int, bias: int, base: int, num = 6):
+    start = -K
+    end = K + bias 
+    gamma_space = np.logspace(start, end, num, base=base) / dimension
+
+    return {
+        'ridge_classification__gamma' : gamma_space,
+        'ridge_classification__alpha' : np.logspace(-4, 2, num, base=10)
+      }
+
 # Number from random features
 n_components_list = [10, 20, 50, 100, 200, 500, 1000]
+
 
 ######################################################################
 #                        For  Nyström + Ridge Classification              

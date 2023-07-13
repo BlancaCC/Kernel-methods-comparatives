@@ -1,8 +1,10 @@
-dataset=a9a
-cv=2
-njobs=10
+#!/bin/sh
+dataset=Diabetes
+#dataset=a9a
+cv=5
+njobs=5
 
-echo "Basic-measures/model_Nystrom_svm.py classification" "$(date -utc)"
-python3 model_rbf_svm_classification.py "$dataset" --cv "$cv" --n_jobs "$njobs" 
-echo "end training" "$(date -utc)"
+echo " model_kernel_ridge_classification.py" "$(date)"
+python3 model_kernel_ridge_classification.py "$dataset" --cv "$cv" --n_jobs "$njobs" > ./results/verboses/kernel_ridge_classification_"$dataset"_cv_"$cv".txt
+echo "end training" "$(date)"
 

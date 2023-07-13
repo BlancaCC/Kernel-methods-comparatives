@@ -1,0 +1,15 @@
+
+--------------------
+'Model: Kernel ridge classification 
+	Dataset: Diabetes  of shape (537, 8) 	CV: 5 	n_jobs: 10
+	 params: {'ridge_classification__gamma': array([1.22070312e-04, 8.50147034e-04, 5.92076784e-03, 4.12346222e-02,
+       2.87174589e-01, 2.00000000e+00]), 'ridge_classification__alpha': array([1.00000000e-04, 1.58489319e-03, 2.51188643e-02, 3.98107171e-01,
+       6.30957344e+00, 1.00000000e+02])}
+--------------------
+
+Final scores
+Best Parameters:  {'ridge_classification__alpha': 0.0001, 'ridge_classification__gamma': 0.0001220703125}
+Best Accuracy in CV:  -0.0620138021744945
+Training Time:  0.2744119167327881
+Accuracy in test:  0.7445887445887446
+Results written to ./results/accuracy_time_stats/Kernel_ridge_classification_Diabetes_cv_5.txt

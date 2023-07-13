@@ -18,35 +18,35 @@ param_grid (k= 5, bias = 5, dimension = 8 base = 4) =
 Nos encontramos en la iteración 10
 Final scores for n componentes: 10
 Best Parameters:  {'nystroem__gamma': 0.015625, 'ridge_classification__alpha': 0.1}
-Best Accuracy in CV:  0.776497057805469
-Training Time:  0.0045430660247802734
-Accuracy in test:  0.7705627705627706
+Best Accuracy in CV:  0.7877466251298028
+Training Time:  0.004518747329711914
+Accuracy in test:  0.7359307359307359
 --------------------
 Nos encontramos en la iteración 20
 Final scores for n componentes: 20
-Best Parameters:  {'nystroem__gamma': 0.0013810679320049757, 'ridge_classification__alpha': 0.0031622776601683794}
-Best Accuracy in CV:  0.7839736933194876
-Training Time:  0.001856088638305664
-Accuracy in test:  0.7575757575757576
+Best Parameters:  {'nystroem__gamma': 0.015625, 'ridge_classification__alpha': 0.0031622776601683794}
+Best Accuracy in CV:  0.7802872966424368
+Training Time:  0.0018100738525390625
+Accuracy in test:  0.7489177489177489
 --------------------
 Nos encontramos en la iteración 50
 Final scores for n componentes: 50
-Best Parameters:  {'nystroem__gamma': 0.1767766952966369, 'ridge_classification__alpha': 0.0031622776601683794}
-Best Accuracy in CV:  0.782017999307719
-Training Time:  0.21793198585510254
-Accuracy in test:  0.7445887445887446
+Best Parameters:  {'nystroem__gamma': 0.0013810679320049757, 'ridge_classification__alpha': 0.0031622776601683794}
+Best Accuracy in CV:  0.7803219106957424
+Training Time:  0.24011683464050293
+Accuracy in test:  0.7662337662337663
 --------------------
 Nos encontramos en la iteración 100
 Final scores for n componentes: 100
-Best Parameters:  {'nystroem__gamma': 0.0013810679320049757, 'ridge_classification__alpha': 0.0001}
-Best Accuracy in CV:  0.783939079266182
-Training Time:  0.5526320934295654
-Accuracy in test:  0.7575757575757576
+Best Parameters:  {'nystroem__gamma': 0.015625, 'ridge_classification__alpha': 0.1}
+Best Accuracy in CV:  0.7802699896157839
+Training Time:  0.5375218391418457
+Accuracy in test:  0.7445887445887446
 --------------------
 Nos encontramos en la iteración 200
 Final scores for n componentes: 200
 Best Parameters:  {'nystroem__gamma': 0.015625, 'ridge_classification__alpha': 0.1}
-Best Accuracy in CV:  0.7857563170647283
-Training Time:  0.47958803176879883
-Accuracy in test:  0.7532467532467533
+Best Accuracy in CV:  0.7821218414676359
+Training Time:  0.5319340229034424
+Accuracy in test:  0.7575757575757576
 Results written to ./results/accuracy_time_stats/Nystrom_and_ridge_classification_Diabetes_cv_5.csv

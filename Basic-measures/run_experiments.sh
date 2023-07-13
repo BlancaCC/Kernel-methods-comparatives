@@ -5,15 +5,17 @@
 if [ $# -ge 1 ]; then
   njobs=$1
 else
-  njobs=20
+  #njobs=5
+  njobs=10
 fi
 
 # Check if the dataset name argument is provided
 if [ $# -ge 2 ]; then
   dataset=$2
 else
-    dataset=covtype.binary
-    #dataset=Diabetes
+    #dataset=a9a
+    #dataset=covtype.binary
+    dataset=Diabetes
 fi
 
 if [ $# -ge 3 ]; then
@@ -51,3 +53,6 @@ echo ""
 echo "Modelo Nystrom svm" "$(date -u)"
 python3 model_Nystrom_svm.py "$dataset" --cv "$cv" --n_jobs "$njobs" > ./results/verboses/Nystrom_svm_classification_"$dataset"_cv_"$cv".txt
 echo ""
+echo " model_kernel_ridge_classification " "$(date -u)"
+python3 model_kernel_ridge_classification.py "$dataset" --cv "$cv" --n_jobs "$njobs" > ./results/verboses/kernel_ridge_classification_"$dataset"_cv_"$cv".txt
+echo "end experiments :)" "$(date -u)"

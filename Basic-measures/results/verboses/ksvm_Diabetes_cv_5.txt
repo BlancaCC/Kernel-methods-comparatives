@@ -8,8 +8,8 @@
 --------------------
 
 Final scores
-Best Parameters:  {'svm__C': 316.22776601683796, 'svm__gamma': 0.0013810679320049757}
-Best Accuracy in CV:  0.7970231914157149
-Training Time:  0.0047910213470458984
-Accuracy in test:  0.7445887445887446
+Best Parameters:  {'svm__C': 316.22776601683796, 'svm__gamma': 0.0001220703125}
+Best Accuracy in CV:  0.7691588785046728
+Training Time:  0.0037648677825927734
+Accuracy in test:  0.7748917748917749
 Results written to ./results/accuracy_time_stats/KSVM_classification_Diabetes_cv_5.txt

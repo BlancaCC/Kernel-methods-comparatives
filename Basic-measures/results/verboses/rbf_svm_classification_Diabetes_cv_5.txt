@@ -14,37 +14,37 @@ param_grid (k= 5, bias = 5, dimension = 8 base = 4)
 
 Final scores for n components: 10
 Best Parameters:  {'rbf_sampler__gamma': 0.015625, 'svm__C': 3.1622776601683795}
-Best Accuracy in CV:  0.7450155763239875
-Training Time:  0.00465703010559082
-Accuracy in test:  0.7619047619047619
+Best Accuracy in CV:  0.7541883004499826
+Training Time:  0.004672050476074219
+Accuracy in test:  0.7662337662337663
 Final scores for n components: 20
 Best Parameters:  {'rbf_sampler__gamma': 0.0001220703125, 'svm__C': 100.0}
-Best Accuracy in CV:  0.7505538248528902
-Training Time:  0.0045850276947021484
-Accuracy in test:  0.8225108225108225
+Best Accuracy in CV:  0.7597438560055383
+Training Time:  0.00458979606628418
+Accuracy in test:  0.8051948051948052
 Final scores for n components: 50
-Best Parameters:  {'rbf_sampler__gamma': 0.015625, 'svm__C': 3.1622776601683795}
-Best Accuracy in CV:  0.7579785392869505
-Training Time:  0.006512880325317383
-Accuracy in test:  0.7922077922077922
-Final scores for n components: 100
-Best Parameters:  {'rbf_sampler__gamma': 0.0013810679320049757, 'svm__C': 3.1622776601683795}
-Best Accuracy in CV:  0.7599342332987191
-Training Time:  0.030911922454833984
-Accuracy in test:  0.8268398268398268
-Final scores for n components: 200
 Best Parameters:  {'rbf_sampler__gamma': 0.0013810679320049757, 'svm__C': 100.0}
-Best Accuracy in CV:  0.765472481827622
-Training Time:  0.01856708526611328
-Accuracy in test:  0.8138528138528138
+Best Accuracy in CV:  0.7689858082381447
+Training Time:  0.0069849491119384766
+Accuracy in test:  0.8008658008658008
+Final scores for n components: 100
+Best Parameters:  {'rbf_sampler__gamma': 0.0013810679320049757, 'svm__C': 100.0}
+Best Accuracy in CV:  0.7727414330218069
+Training Time:  0.013094902038574219
+Accuracy in test:  0.7878787878787878
+Final scores for n components: 200
+Best Parameters:  {'rbf_sampler__gamma': 0.0001220703125, 'svm__C': 100.0}
+Best Accuracy in CV:  0.77466251298027
+Training Time:  0.026266098022460938
+Accuracy in test:  0.8008658008658008
 Final scores for n components: 500
 Best Parameters:  {'rbf_sampler__gamma': 0.0001220703125, 'svm__C': 100.0}
-Best Accuracy in CV:  0.7542921426098996
-Training Time:  0.07534170150756836
-Accuracy in test:  0.8138528138528138
+Best Accuracy in CV:  0.7709415022499135
+Training Time:  0.059478044509887695
+Accuracy in test:  0.7965367965367965
 Final scores for n components: 1000
-Best Parameters:  {'rbf_sampler__gamma': 0.0013810679320049757, 'svm__C': 100.0}
-Best Accuracy in CV:  0.7579785392869505
-Training Time:  0.12389016151428223
-Accuracy in test:  0.8138528138528138
+Best Parameters:  {'rbf_sampler__gamma': 0.0001220703125, 'svm__C': 100.0}
+Best Accuracy in CV:  0.769055036344756
+Training Time:  0.1112360954284668
+Accuracy in test:  0.7965367965367965
 Results written to ./results/accuracy_time_stats/RBF_and_svm_classification_Diabetes_cv_5.csv

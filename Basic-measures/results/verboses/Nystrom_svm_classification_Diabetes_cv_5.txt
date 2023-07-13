@@ -13,28 +13,28 @@ param_grid (k= 5, bias = 5, dimension = 8 base = 4) =
 --------------------
 
 Final scores for n componentes: 10
-Best Parameters:  {'nystroem__gamma': 0.0013810679320049757, 'svm__C': 100.0}
-Best Accuracy in CV:  0.7895638629283489
-Training Time:  0.006530046463012695
-Accuracy in test:  0.7532467532467533
+Best Parameters:  {'nystroem__gamma': 0.0001220703125, 'svm__C': 100.0}
+Best Accuracy in CV:  0.7764797507788163
+Training Time:  0.006021976470947266
+Accuracy in test:  0.7619047619047619
 Final scores for n componentes: 20
-Best Parameters:  {'nystroem__gamma': 0.015625, 'svm__C': 3.1622776601683795}
-Best Accuracy in CV:  0.7951194184839044
-Training Time:  0.003804922103881836
+Best Parameters:  {'nystroem__gamma': 0.015625, 'svm__C': 100.0}
+Best Accuracy in CV:  0.7764797507788163
+Training Time:  0.0065228939056396484
 Accuracy in test:  0.7575757575757576
 Final scores for n componentes: 50
-Best Parameters:  {'nystroem__gamma': 0.015625, 'svm__C': 3.1622776601683795}
-Best Accuracy in CV:  0.7969366562824506
-Training Time:  0.06544613838195801
-Accuracy in test:  0.7402597402597403
+Best Parameters:  {'nystroem__gamma': 0.0001220703125, 'svm__C': 100.0}
+Best Accuracy in CV:  0.7746105919003116
+Training Time:  0.07259011268615723
+Accuracy in test:  0.7619047619047619
 Final scores for n componentes: 100
-Best Parameters:  {'nystroem__gamma': 0.015625, 'svm__C': 3.1622776601683795}
-Best Accuracy in CV:  0.7950674974039459
-Training Time:  0.1023261547088623
-Accuracy in test:  0.7359307359307359
+Best Parameters:  {'nystroem__gamma': 0.0001220703125, 'svm__C': 100.0}
+Best Accuracy in CV:  0.7746105919003116
+Training Time:  0.10947489738464355
+Accuracy in test:  0.7619047619047619
 Final scores for n componentes: 200
-Best Parameters:  {'nystroem__gamma': 0.015625, 'svm__C': 3.1622776601683795}
-Best Accuracy in CV:  0.7931983385254412
-Training Time:  0.16020512580871582
-Accuracy in test:  0.7359307359307359
+Best Parameters:  {'nystroem__gamma': 0.0001220703125, 'svm__C': 100.0}
+Best Accuracy in CV:  0.7746105919003116
+Training Time:  0.17150497436523438
+Accuracy in test:  0.7619047619047619
 Results written to ./results/accuracy_time_stats/Nystrom_and_svm_classification_Diabetes_cv_5.csv
