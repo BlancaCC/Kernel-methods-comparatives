@@ -1,20 +1,40 @@
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
-
+import itertools
 
 colours = list(mcolors.CSS4_COLORS.keys())
+def color_vector_features(color, luminiscente_coefficients = 0.6):
 
-def get_luminance(color):
-    rgb = mcolors.to_rgb(color)
-    luminance = 0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2]
-    return luminance
-# Calculate the luminance for each color
-luminances = {color: get_luminance(color) for color in colours}
+    red, green, blue = mcolors.to_rgb(color)
+    luminance = 0.299 * red + 0.587 * green + 0.114 * blue
 
-# Sort the colors by luminance in descending order
-sorted_colors = sorted(luminances, key=luminances.get, reverse=False)
+    adjust = lambda x: (1- luminiscente_coefficients )* x  + luminiscente_coefficients* luminance
+    features = [
+        adjust(red - green - blue),
+       adjust(green - blue - red),
+        adjust(blue - red - green),
+        adjust(red + green - blue),
+        adjust(red + blue - green),
+        adjust(green + blue - red),
+        adjust(green + blue + red),
+    ]
+    return features
 
-colours = [color for i, color in enumerate(sorted_colors) if i % 3 == 0]
+mapping = [ (c,*color_vector_features(c)) for c in colours]
+n_features = len(mapping[1])
+
+get_index = lambda i: lambda v: (v[0], v[i])
+
+def ordenar_y_extraer_nombres(indice):
+    lista = list(map( get_index(indice), mapping ))
+    lista_ordenada = sorted(lista, key=lambda x: x[1], reverse= False)
+    nombres = [nombre for nombre, _ in lista_ordenada]
+    return nombres
+
+colours = list(itertools.chain.from_iterable(list(zip(*[ ordenar_y_extraer_nombres( i) for i in range(1,n_features)]))))
+
+colours = colours[3:]
+
 def get_comparatives(column:str, df_with_n_components, df_labels:list, title:str, constant_lines = [], constants_labels = [], log_scale  = False, constant_margin = 0.001, marker = ''):
     axis_x_name = 'n_components'
     # Set a larger figure size
