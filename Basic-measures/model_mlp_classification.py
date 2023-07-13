@@ -69,7 +69,8 @@ for hidden_layer_sizes in neural_networks_sizes:
     # TODO: utilizar Early stopping 
     # Utilizar transformer regresor 
     mlp = MLPClassifier(hidden_layer_sizes, 
-                                max_iter=10000)
+                                max_iter=10000,
+                                early_stopping=True)
 
     # Create the pipeline
     pipeline = Pipeline([

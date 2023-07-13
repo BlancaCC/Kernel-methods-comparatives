@@ -18,10 +18,19 @@ def extract_parameters(file_path):
         start_index = content.find(p) + len(p)
         end_index = content.find("\n", start_index)
         params_str = content[start_index:end_index]
-        params = params_str#eval(params_str)
+        params = eval(params_str)
         results.append(params)
 
     return results
+
+
+
+def sort_dataframe_by(df, column, ascending, ranking_size = False):
+    if ranking_size == False: 
+        ranking_size = df.shape[0]
+    return df.sort_values(by=column, ascending=ascending).head(ranking_size)
+
+
 
 if __name__ == '__main__':
 
