@@ -1,0 +1,40 @@
+
+--------------------
+Model: Nyström + svm Classification 
+
+	Dataset: Diabetes 	CV: 5 	n_jobs: 10
+
+number of components to test: [10, 20, 50, 100, 200]
+
+param_grid (k= 5, bias = 5, dimension = 8 base = 4) = 
+{'nystroem__gamma': array([1.22070312e-04, 1.38106793e-03, 1.56250000e-02, 1.76776695e-01,
+       2.00000000e+00]), 'svm__C': array([1.00000000e-04, 3.16227766e-03, 1.00000000e-01, 3.16227766e+00,
+       1.00000000e+02])}
+--------------------
+
+Final scores for n componentes: 10
+Best Parameters:  {'nystroem__gamma': 0.0013810679320049757, 'svm__C': 100.0}
+Best Accuracy in CV:  0.7895638629283489
+Training Time:  0.006530046463012695
+Accuracy in test:  0.7532467532467533
+Final scores for n componentes: 20
+Best Parameters:  {'nystroem__gamma': 0.015625, 'svm__C': 3.1622776601683795}
+Best Accuracy in CV:  0.7951194184839044
+Training Time:  0.003804922103881836
+Accuracy in test:  0.7575757575757576
+Final scores for n componentes: 50
+Best Parameters:  {'nystroem__gamma': 0.015625, 'svm__C': 3.1622776601683795}
+Best Accuracy in CV:  0.7969366562824506
+Training Time:  0.06544613838195801
+Accuracy in test:  0.7402597402597403
+Final scores for n componentes: 100
+Best Parameters:  {'nystroem__gamma': 0.015625, 'svm__C': 3.1622776601683795}
+Best Accuracy in CV:  0.7950674974039459
+Training Time:  0.1023261547088623
+Accuracy in test:  0.7359307359307359
+Final scores for n componentes: 200
+Best Parameters:  {'nystroem__gamma': 0.015625, 'svm__C': 3.1622776601683795}
+Best Accuracy in CV:  0.7931983385254412
+Training Time:  0.16020512580871582
+Accuracy in test:  0.7359307359307359
+Results written to ./results/accuracy_time_stats/Nystrom_and_svm_classification_Diabetes_cv_5.csv

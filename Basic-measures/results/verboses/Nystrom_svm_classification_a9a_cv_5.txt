@@ -1,0 +1,50 @@
+
+--------------------
+Model: Nyström + svm Classification 
+
+	Dataset: a9a 	CV: 5 	n_jobs: 20
+
+number of components to test: [10, 20, 50, 100, 200, 500, 1000]
+
+param_grid (k= 5, bias = 5, dimension = 123 base = 4) = 
+{'nystroem__gamma': array([7.93953252e-06, 8.98255566e-05, 1.01626016e-03, 1.14976712e-02,
+       1.30081301e-01]), 'svm__C': array([1.00000000e-04, 3.16227766e-03, 1.00000000e-01, 3.16227766e+00,
+       1.00000000e+02])}
+--------------------
+
+Final scores for n componentes: 10
+Best Parameters:  {'nystroem__gamma': 7.939532520325204e-06, 'svm__C': 100.0}
+Best Accuracy in CV:  0.805718783563095
+Training Time:  15.285104274749756
+Accuracy in test:  0.7645107794361525
+Final scores for n componentes: 20
+Best Parameters:  {'nystroem__gamma': 0.0010162601626016261, 'svm__C': 3.1622776601683795}
+Best Accuracy in CV:  0.8226102321910705
+Training Time:  14.246052980422974
+Accuracy in test:  0.8342239420183035
+Final scores for n componentes: 50
+Best Parameters:  {'nystroem__gamma': 0.0010162601626016261, 'svm__C': 3.1622776601683795}
+Best Accuracy in CV:  0.843708915565203
+Training Time:  16.782042026519775
+Accuracy in test:  0.8485965235550642
+Final scores for n componentes: 100
+Best Parameters:  {'nystroem__gamma': 8.982555655316915e-05, 'svm__C': 100.0}
+Best Accuracy in CV:  0.8460122044702884
+Training Time:  27.424567699432373
+Accuracy in test:  0.8495178428843437
+Final scores for n componentes: 200
+Best Parameters:  {'nystroem__gamma': 8.982555655316915e-05, 'svm__C': 100.0}
+Best Accuracy in CV:  0.8469335285203549
+Training Time:  71.19397854804993
+Accuracy in test:  0.8500706344819114
+Final scores for n componentes: 500
+Best Parameters:  {'nystroem__gamma': 8.982555655316915e-05, 'svm__C': 100.0}
+Best Accuracy in CV:  0.846902820705216
+Training Time:  184.23186683654785
+Accuracy in test:  0.8503777409250046
+Final scores for n componentes: 1000
+Best Parameters:  {'nystroem__gamma': 8.982555655316915e-05, 'svm__C': 100.0}
+Best Accuracy in CV:  0.8475477319788697
+Training Time:  335.8771481513977
+Accuracy in test:  0.8506848473680978
+Results written to ./results/accuracy_time_stats/Nystrom_and_svm_classification_a9a_cv_5.csv

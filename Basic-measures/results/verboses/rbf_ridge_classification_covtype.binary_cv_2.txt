@@ -1,0 +1,50 @@
+
+--------------------
+Model: RBF (Random Features) + Ridge Classification 
+
+	Dataset: covtype.binary  of shape((1000, 54))
+	CV: 2 	n_jobs: 8
+
+number of components to test: [10, 20, 50, 100, 200, 500, 1000]
+
+param_grid (k= 5, bias = 5, dimension = 54 base = 4) = 
+{'rbf_sampler__gamma': ['scale', 1.808449074074074e-05, 0.00020460265659332975, 0.0023148148148148147, 0.026189140043946207, 0.2962962962962963], 'ridge_classification__alpha': array([1.00000000e-04, 3.16227766e-03, 1.00000000e-01, 3.16227766e+00,
+       1.00000000e+02])}
+--------------------
+
+Final scores for n components: 10
+Best Parameters:  {'rbf_sampler__gamma': 0.00020460265659332975, 'ridge_classification__alpha': 3.1622776601683795}
+Best Accuracy in CV:  0.629
+Training Time:  0.0026988983154296875
+Accuracy in test:  0.5725399302368276
+Final scores for n components: 20
+Best Parameters:  {'rbf_sampler__gamma': 0.0023148148148148147, 'ridge_classification__alpha': 0.0001}
+Best Accuracy in CV:  0.6619999999999999
+Training Time:  0.004626035690307617
+Accuracy in test:  0.6449134844868735
+Final scores for n components: 50
+Best Parameters:  {'rbf_sampler__gamma': 1.808449074074074e-05, 'ridge_classification__alpha': 0.0001}
+Best Accuracy in CV:  0.711
+Training Time:  0.023113012313842773
+Accuracy in test:  0.7170460804112355
+Final scores for n components: 100
+Best Parameters:  {'rbf_sampler__gamma': 1.808449074074074e-05, 'ridge_classification__alpha': 0.0001}
+Best Accuracy in CV:  0.729
+Training Time:  0.048542022705078125
+Accuracy in test:  0.739833853497338
+Final scores for n components: 200
+Best Parameters:  {'rbf_sampler__gamma': 1.808449074074074e-05, 'ridge_classification__alpha': 0.0001}
+Best Accuracy in CV:  0.727
+Training Time:  0.06302690505981445
+Accuracy in test:  0.7398797503212777
+Final scores for n components: 500
+Best Parameters:  {'rbf_sampler__gamma': 1.808449074074074e-05, 'ridge_classification__alpha': 0.0001}
+Best Accuracy in CV:  0.727
+Training Time:  0.09945082664489746
+Accuracy in test:  0.7411419129796218
+Final scores for n components: 1000
+Best Parameters:  {'rbf_sampler__gamma': 1.808449074074074e-05, 'ridge_classification__alpha': 0.0001}
+Best Accuracy in CV:  0.726
+Training Time:  0.302919864654541
+Accuracy in test:  0.740780475491096
+Results written to ./results/accuracy_time_stats/RBF_and_ridge_classification_covtype.binary_cv_2.csv

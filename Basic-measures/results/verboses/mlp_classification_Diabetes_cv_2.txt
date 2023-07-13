@@ -1,0 +1,29 @@
+
+--------------------
+Model: Neural Networks 
+
+	Dataset: Diabetes 	CV: 2 	n_jobs: 10
+	number of components to test: [10, 20, 50, 100, 200]
+	param_grid (k= 6, bias = 5, dimension = 8 base = 10) = 
+{'mlp_classification__alpha': array([1.e-06, 1.e-05, 1.e-04, 1.e-03, 1.e-02, 1.e-01, 1.e+00, 1.e+01,
+       1.e+02, 1.e+03, 1.e+04, 1.e+05, 1.e+06, 1.e+07])}
+	 neural networks sizes: [(644,), (25, 25), (8, 8, 8)] 
+	 size 537 percent 1.2 maximum layers 3
+--------------------
+
+Final scores hidden layer sizes: (644,)
+Best Parameters:  {'mlp_classification__alpha': 10.0}
+Best Accuracy in CV:  0.754196027298452
+Training Time:  0.4621398448944092
+Accuracy in test:  0.7662337662337663
+Final scores hidden layer sizes: (25, 25)
+Best Parameters:  {'mlp_classification__alpha': 10.0}
+Best Accuracy in CV:  0.7579204349997226
+Training Time:  0.20130491256713867
+Accuracy in test:  0.7662337662337663
+Final scores hidden layer sizes: (8, 8, 8)
+Best Parameters:  {'mlp_classification__alpha': 1.0}
+Best Accuracy in CV:  0.7262040170892747
+Training Time:  0.22140073776245117
+Accuracy in test:  0.7662337662337663
+Results written to ./results/accuracy_time_stats/neural_network_classification_Diabetes_cv_2.csv

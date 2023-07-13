@@ -1,0 +1,15 @@
+
+--------------------
+'Model: KSVM classification 
+	Dataset: covtype.binary 	CV: 2 	n_jobs: 8
+	 params: {'svm__C': array([1.00000000e-02, 3.16227766e-01, 1.00000000e+01, 3.16227766e+02,
+       1.00000000e+04]), 'svm__gamma': array([1.80844907e-05, 2.04602657e-04, 2.31481481e-03, 2.61891400e-02,
+       2.96296296e-01])}
+--------------------
+
+Final scores
+Best Parameters:  {'svm__C': 10000.0, 'svm__gamma': 0.00020460265659332975}
+Best Accuracy in CV:  0.746
+Training Time:  0.05521273612976074
+Accuracy in test:  0.7585253350468147
+Results written to ./results/accuracy_time_stats/KSVM_classification_covtype.binary_cv_2.txt

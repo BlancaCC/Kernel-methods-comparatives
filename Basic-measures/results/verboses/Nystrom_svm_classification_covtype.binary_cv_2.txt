@@ -1,0 +1,45 @@
+
+--------------------
+Model: Nyström + svm Classification 
+
+	Dataset: covtype.binary 	CV: 2 	n_jobs: 8
+
+number of components to test: [10, 20, 50, 100, 200, 500]
+
+param_grid (k= 5, bias = 5, dimension = 54 base = 4) = 
+{'nystroem__gamma': array([1.80844907e-05, 2.04602657e-04, 2.31481481e-03, 2.61891400e-02,
+       2.96296296e-01]), 'svm__C': array([1.00000000e-04, 3.16227766e-03, 1.00000000e-01, 3.16227766e+00,
+       1.00000000e+02])}
+--------------------
+
+Final scores for n componentes: 10
+Best Parameters:  {'nystroem__gamma': 0.00020460265659332975, 'svm__C': 100.0}
+Best Accuracy in CV:  0.62
+Training Time:  0.015980005264282227
+Accuracy in test:  0.5926714246374151
+Final scores for n componentes: 20
+Best Parameters:  {'nystroem__gamma': 0.00020460265659332975, 'svm__C': 100.0}
+Best Accuracy in CV:  0.7
+Training Time:  0.024643659591674805
+Accuracy in test:  0.6815276757848356
+Final scores for n componentes: 50
+Best Parameters:  {'nystroem__gamma': 0.0023148148148148147, 'svm__C': 100.0}
+Best Accuracy in CV:  0.747
+Training Time:  0.17464923858642578
+Accuracy in test:  0.7483878740591151
+Final scores for n componentes: 100
+Best Parameters:  {'nystroem__gamma': 0.0023148148148148147, 'svm__C': 100.0}
+Best Accuracy in CV:  0.728
+Training Time:  0.4836888313293457
+Accuracy in test:  0.7490074811823022
+Final scores for n componentes: 200
+Best Parameters:  {'nystroem__gamma': 0.026189140043946207, 'svm__C': 3.1622776601683795}
+Best Accuracy in CV:  0.734
+Training Time:  0.5781691074371338
+Accuracy in test:  0.7530980356159354
+Final scores for n componentes: 500
+Best Parameters:  {'nystroem__gamma': 0.026189140043946207, 'svm__C': 3.1622776601683795}
+Best Accuracy in CV:  0.729
+Training Time:  0.7887990474700928
+Accuracy in test:  0.7532930971176794
+Results written to ./results/accuracy_time_stats/Nystrom_and_svm_classification_covtype.binary_cv_2.csv

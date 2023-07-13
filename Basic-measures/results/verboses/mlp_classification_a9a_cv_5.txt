@@ -1,0 +1,29 @@
+
+--------------------
+Model: Neural Networks 
+
+	Dataset: a9a 	CV: 5 	n_jobs: 5
+	number of components to test: [10, 20, 50, 100, 200, 500, 1000]
+	param_grid (k= 6, bias = 5, dimension = 123 base = 10) = 
+{'mlp_classification__alpha': array([1.e-06, 1.e-05, 1.e-04, 1.e-03, 1.e-02, 1.e-01, 1.e+00, 1.e+01,
+       1.e+02, 1.e+03, 1.e+04, 1.e+05, 1.e+06, 1.e+07])}
+	 neural networks sizes: [(20000,), (141, 141), (27, 27, 27)] 
+	 size 32561 percent 1.2 maximum layers 3
+--------------------
+
+Final scores hidden layer sizes: (20000,)
+Best Parameters:  {'mlp_classification__alpha': 1.0}
+Best Accuracy in CV:  0.8488376629843696
+Training Time:  978.5115120410919
+Accuracy in test:  0.8510533750998096
+Final scores hidden layer sizes: (141, 141)
+Best Parameters:  {'mlp_classification__alpha': 1.0}
+Best Accuracy in CV:  0.8468107349843876
+Training Time:  35.615684509277344
+Accuracy in test:  0.8465696210306493
+Final scores hidden layer sizes: (27, 27, 27)
+Best Parameters:  {'mlp_classification__alpha': 1.0}
+Best Accuracy in CV:  0.8472713569270456
+Training Time:  19.37067198753357
+Accuracy in test:  0.8474295190713101
+Results written to ./results/accuracy_time_stats/neural_network_classification_a9a_cv_5.txt
