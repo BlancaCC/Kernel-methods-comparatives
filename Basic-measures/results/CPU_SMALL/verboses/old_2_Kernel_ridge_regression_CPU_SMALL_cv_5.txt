@@ -1,0 +1,10 @@
+
+    --------------------
+    'Model: Kernel ridge regression 
+    	Dataset: CPU_SMALL  of shape (8192, 12) 	CV: 5 	n_jobs: 10
+    	 params: {'regressor__kernel_ridge__alpha': [1.0, 10.0, 100.0], 'regressor__kernel_ridge__gamma': [2.5431315104166665e-06, 5.086263020833333e-06, 1.0172526041666666e-05, 2.0345052083333332e-05, 4.0690104166666664e-05, 8.138020833333333e-05, 0.00016276041666666666, 0.0003255208333333333, 0.0006510416666666666, 0.0013020833333333333, 0.0026041666666666665, 0.005208333333333333, 0.010416666666666666, 0.020833333333333332, 0.041666666666666664, 0.08333333333333333]} 
+    	 number of hyperparameter 48
+    --------------------
+    
+{'Mean Best Score in CV': [0.7088197046738858], 'std Best Score in CV': [0.006996499831629354], 'Mean Training Time': [1.1914597511291505], 'std Training Time': [0.05646231832331097]}
+{'Best Parameters': [{'regressor__kernel_ridge__alpha': 100.0, 'regressor__kernel_ridge__gamma': 2.5431315104166665e-06}, {'regressor__kernel_ridge__alpha': 100.0, 'regressor__kernel_ridge__gamma': 2.5431315104166665e-06}, {'regressor__kernel_ridge__alpha': 10.0, 'regressor__kernel_ridge__gamma': 2.5431315104166665e-06}, {'regressor__kernel_ridge__alpha': 10.0, 'regressor__kernel_ridge__gamma': 2.5431315104166665e-06}, {'regressor__kernel_ridge__alpha': 10.0, 'regressor__kernel_ridge__gamma': 2.5431315104166665e-06}], 'Best Score in CV': [0.7116001273459351, 0.695292273589947, 0.7156164809273122, 0.710926298910945, 0.7106633425952893], 'Training Time': [1.2526741027832031, 1.1366209983825684, 1.2650868892669678, 1.1682558059692383, 1.1346609592437744], 'Score in test': [0.691291505789664, 0.7509483954768025, 0.6905769538132127, 0.7056357276689114, 0.7085799225638635]}

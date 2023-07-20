@@ -16,7 +16,7 @@ def function_param_grid_ksvm(dimension:int, K:int, bias: int, base: int):
     gamma_space = np.logspace(start, end, num, base=base) / dimension
 
     return {
-        'svm__C' : np.logspace(-2, 4, num, base=10),
+        'svm__C' : np.logspace(-2, 4, 7, base=10), # [0.1, 1, 10, 100, 1000]
         'svm__gamma': gamma_space,
         
     }

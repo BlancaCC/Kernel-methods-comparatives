@@ -45,8 +45,34 @@ def get_data(dataset:str, absolute_path = '.') -> Tuple[np.array, np.array, np.a
     return X_dense, y, X_test_dense, y_test
 
 
+def get_data_without_split(dataset:str, absolute_path = '.') -> Tuple[np.array, np.array]:
+    '''Return  X_dense, y, X_test_dense, y_test from a libsvm data set 
+    Options: 
+    Adults: `dataset == 'a9a' or dataset == '1'`
+    '''
+    # Load the dataset from a libsvm file
+    if dataset in data_structure:
+        train_data_file = f"{absolute_path}/Data/{dataset}/{data_structure[dataset]['train']}"
+        n_features = data_structure[dataset]['n_features']
+    else:
+        raise ValueError(f'Invalid dataset value. The valid are: {data_structure.keys()}')
+    # Load Data
+    X_sparse, y = load_svmlight_file(train_data_file, n_features=n_features)
+
+    # Check if the matrix is sparse
+    is_sparse = sp.issparse(X_sparse)
+
+    # Convert the data to TensorFlow tensors
+    if is_sparse:
+        X_dense = np.asarray(X_sparse.todense())
+    else:
+        X_dense = np.asarray(X_sparse.toarray())
+
+    return X_dense, y
+
+
 if __name__ == '__main__':
     absolute_path = '/Users/blancacanocamarero/repositorios/TFM/Kernel-methods-comparatives/Basic-measures'
     for data_set in data_structure.keys():
         X_dense, y, X_test_dense, y_test = get_data(data_set, absolute_path)
-        print('\n# ', data_set, f'\n# Type of problem: {data_structure[data_set]["type"]} \n#T rain shape: ', X_dense.shape, '\n# Test shape: ',X_test_dense.shape)
+        print('\n# ', data_set, f'\n# Type of problem: {data_structure[data_set]["type"]} \n# Train shape: ', X_dense.shape, '\n# Test shape: ',X_test_dense.shape)

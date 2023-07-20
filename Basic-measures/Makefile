@@ -1,11 +1,14 @@
 all: 
 	experiments
+	create_dir
 
 install:
 	bash ./installation.sh
 
 create_dir: 
-	mkdir ./results ./results/verboses/ ./results/accuracy_time_stats ./results/joblib
+	mkdir ./results/CPU_SMALL/ ./results/CPU_SMALL/verboses/ ./results/CPU_SMALL/accuracy_time_stats ./results/CPU_SMALL/joblib 
+	mkdir ./results ./results/verboses/ ./results/accuracy_time_stats ./results/joblib 
+	
 	
 experiments: create_dir  
 	bash run_experiments.sh

@@ -1,0 +1,15 @@
+
+--------------------
+'Model: Kernel ridge classification 
+	Dataset: a9a  of shape (32561, 123) 	CV: 5 	n_jobs: 5
+	 params: {'ridge_classification__gamma': array([7.93953252e-06, 5.52941161e-05, 3.85090591e-04, 2.68192665e-03,
+       1.86780220e-02, 1.30081301e-01]), 'ridge_classification__alpha': array([1.00000000e-04, 1.58489319e-03, 2.51188643e-02, 3.98107171e-01,
+       6.30957344e+00, 1.00000000e+02])}
+--------------------
+
+Final scores
+Best Parameters:  {'ridge_classification__alpha': 100.0, 'ridge_classification__gamma': 7.939532520325204e-06}
+Best Accuracy in CV:  -0.4573082641132446
+Training Time:  1475.2778477668762
+Accuracy in test:  0.7335544499723604
+Results written to ./results/accuracy_time_stats/Kernel_ridge_classification_a9a_cv_5.txt

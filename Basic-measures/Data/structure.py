@@ -26,7 +26,7 @@
 #Train shape:  (5734, 12) 
 #Test shape:  (2458, 12)
 #################################################
-
+# 
 data_structure = {
     'a9a' : {
         'train' : 'a9a.txt',
@@ -50,6 +50,7 @@ data_structure = {
         'train' : 'cpusmall',
         'test' : 0.3,
         'n_features': 12,
-        'type': 'regression'
+        'type': 'regression',
+        'has_test':False
     }
 }
