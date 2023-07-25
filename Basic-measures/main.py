@@ -14,8 +14,8 @@ if __name__ == '__main__':
 
     # Get data 
     X,y = get_data_without_split(args.dataset)
-    kernel_ridge_regression_KF(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
-    #Nystrom_ridge_regression_KF(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
-    #Fourier_random_features_ridge_regression_KF(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
+    #kernel_ridge_regression_KF(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
+    Nystrom_ridge_regression_KF(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
+    Fourier_random_features_ridge_regression_KF(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
     
    

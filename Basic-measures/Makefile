@@ -6,6 +6,7 @@ install:
 	bash ./installation.sh
 
 create_dir: 
+	mkdir ./results/abalone/ ./results/abalone/verboses/ ./results/abalone/accuracy_time_stats ./results/abalone/joblib 
 	mkdir ./results/CPU_SMALL/ ./results/CPU_SMALL/verboses/ ./results/CPU_SMALL/accuracy_time_stats ./results/CPU_SMALL/joblib 
 	mkdir ./results ./results/verboses/ ./results/accuracy_time_stats ./results/joblib 
 	

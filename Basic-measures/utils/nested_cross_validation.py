@@ -2,9 +2,10 @@
 ##
 ##########################################################################
 import numpy as np
+from sklearn.utils import shuffle
 
 # Función para dividir los datos en k pliegues
-def kfold_split(X,y, k):
+def kfold_list(X,y, k):
     '''
     Example of use: 
     -------------------- 
@@ -16,9 +17,11 @@ def kfold_split(X,y, k):
     >>> list(y_test for X_train, y_train, X_test, y_test in kfold_list(X,y, k))
     [array([0, 1, 2]), array([3, 4, 5]), array([6, 7]), array([8, 9])]
     '''
+    X,y = shuffle(X,y)
     n = len(y)
     fold_size =  n// k
     bias = n % k
+    splits = []
     for i in range(k):
         start = i * fold_size + (i)*(bias >= i) + bias*(bias < i)
         end = start + fold_size + (bias > i)
@@ -29,9 +32,9 @@ def kfold_split(X,y, k):
         X_test = X[start:end, :]
         y_test = y[start:end]
 
-        yield X_train, y_train, X_test, y_test
+        splits.append((X_train, y_train, X_test, y_test))
+    return splits
 
-kfold_list  =  lambda X,y, k: list( kfold_split(X,y, k))
 
 
 def nested_cross_validation(X,y,grid_search, k, score_function):

@@ -52,5 +52,12 @@ data_structure = {
         'n_features': 12,
         'type': 'regression',
         'has_test':False
+    },
+    'abalone' : {
+        'train' : 'abalone',
+        'test' : 0.3,
+        'n_features': 8,
+        'type': 'regression',
+        'has_test':False
     }
 }

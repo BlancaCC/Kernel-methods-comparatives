@@ -26,10 +26,12 @@ def kernel_ridge_regression_KF(X, y,
     output_file_accuracy += file_model_name_arg + '.csv'
 
     # Hyperparameters for CV
-    l_alpha = np.append(np.linspace(5, 125,5), np.array([10.**k for k in range(-3, 1, 1)]))
-    l_gamma = np.append(np.logspace(-30, 10,6, base=2)/ X.shape[1], np.array([0.020833333333333332]))
+    l_alpha = np.array([10.**k for k in range(-3, 5, 1)])
+    l_gamma = np.logspace(-4, 10,6, base=2)/ X.shape[1]
+
     param_grid ={'regressor__kernel_ridge__alpha': l_alpha,
-                'regressor__kernel_ridge__gamma': l_gamma}
+                'regressor__kernel_ridge__gamma': l_gamma
+                }
     hyperparameters_to_test = len(l_alpha) * len(l_gamma)
 
     # print information
@@ -45,7 +47,7 @@ def kernel_ridge_regression_KF(X, y,
     # Create the pipeline
     pipeline = Pipeline([
         ('scaler', StandardScaler()),
-        ('kernel_ridge', KernelRidge() )
+        ('kernel_ridge', KernelRidge(kernel='rbf'))
     ])
     inner_estimator = TransformedTargetRegressor(regressor=pipeline,
                                              transformer=StandardScaler())

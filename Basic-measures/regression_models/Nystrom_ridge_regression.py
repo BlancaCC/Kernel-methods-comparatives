@@ -29,16 +29,17 @@ def Nystrom_ridge_regression_KF(X, y,
     output_file_accuracy += file_model_name_arg + '.csv'
 
     # Hyperparameters for CV
-    dim = X.shape[1]
-    l_alpha     = [10.**k for k in range(-1, 4)] 
-    l_gamma = list( np.array([2.**k for k in range(-20, 3, 3)]) / dim)
+    n_rows, dim = X.shape
+    l_alpha = np.array([10.**k for k in range(-3, 5, 1)])
+    l_gamma = np.logspace(-4, 10,6, base=2)/ dim
     param_grid ={
                 'regressor__nystrom__gamma': l_gamma,
                 'regressor__ridge__alpha': l_alpha}
     hyperparameters_to_test = len(l_alpha) * len(l_gamma) 
 
     # Number from random features
-    n_components_list = [10, 20, 50, 100, 200, 500, 1000]
+    percent = [0.5, 1, 2,4,6,8,10,14,16,18,20,22,24,26,28,30]
+    n_components_list = list(map(lambda x: int(x* n_rows / 100), percent ))
 
     # print information
     head_title = f'''
@@ -48,6 +49,7 @@ def Nystrom_ridge_regression_KF(X, y,
     \t params: { param_grid} 
     \t number of hyperparameter {hyperparameters_to_test}
     \t n components {n_components_list}
+    \t which correspond with the {percent} % of the data
     {'-'*20}
     '''
     print(head_title)
