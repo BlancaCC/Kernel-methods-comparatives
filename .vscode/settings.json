@@ -1,0 +1,8 @@
+{
+    "cSpell.words": [
+        "hiperparámetros"
+    ],
+    "python.analysis.extraPaths": [
+        "./Basic-measures"
+    ]
+}

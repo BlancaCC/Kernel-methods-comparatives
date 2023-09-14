@@ -38,7 +38,7 @@ def Nystrom_ridge_regression_KF(X, y,
     hyperparameters_to_test = len(l_alpha) * len(l_gamma) 
 
     # Number from random features
-    percent = [0.5, 1, 2,4,6,8,10,14,16,18,20,22,24,26,28,30]
+    percent = [0.5, 1, 2,4,6,8,10,14,16,18,20,25]
     n_components_list = list(map(lambda x: int(x* n_rows / 100), percent ))
 
     # print information
@@ -54,6 +54,7 @@ def Nystrom_ridge_regression_KF(X, y,
     '''
     print(head_title)
     cv_results_total = { 
+        'percent': [],
         "n_components":[],
         "Score in test":[],
         "Training Time":[],
@@ -61,6 +62,7 @@ def Nystrom_ridge_regression_KF(X, y,
         "Best Score in CV": [], 
     }
     results_total = {
+        'percent': [],
         'n_components' :[],
         "Mean Score in test" :[],
         "Std Score in test" :[],
@@ -70,11 +72,14 @@ def Nystrom_ridge_regression_KF(X, y,
         "Std Best Score in CV": [] 
     }
 
-    for n_components in n_components_list:
-        print('-'*20+f'\nNumber of components for this iteration: {n_components}')
+    for p, n_components in zip(percent, n_components_list):
+        print('-'*20+f'\nNumber of components for this iteration: {n_components} ({p}% of size)')
  
         results_total['n_components'].append(n_components)
         cv_results_total['n_components'] += [n_components for _ in range(4)] # una por cada nested cross validation
+
+        results_total['percent'].append(p)
+        cv_results_total['percent'] += [p for _ in range(4)] 
 
         # Create the Nystroem approximation
         nystrom = Nystroem(kernel='rbf', n_components= n_components)

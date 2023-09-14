@@ -1,7 +1,8 @@
-from regression_models.Fourier_random_features_ridge import Fourier_random_features_ridge_regression_KF
-from regression_models.Nystrom_ridge_regression import Nystrom_ridge_regression_KF
+from models_regression.Fourier_random_features_svr import Fourier_random_features_svr_KF
+from models_regression.Fourier_random_features_ridge import Fourier_random_features_ridge_regression_KF
+from models_regression.Nystrom_ridge_regression import Nystrom_ridge_regression_KF
 from get_data import get_data_without_split
-from regression_models.kernel_ridge import kernel_ridge_regression_KF
+from models_regression.kernel_ridge import kernel_ridge_regression_KF
 import argparse
 
 if __name__ == '__main__':
@@ -15,7 +16,7 @@ if __name__ == '__main__':
     # Get data 
     X,y = get_data_without_split(args.dataset)
     #kernel_ridge_regression_KF(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
-    Nystrom_ridge_regression_KF(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
-    Fourier_random_features_ridge_regression_KF(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
-    
+    #Nystrom_ridge_regression_KF(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
+    #Fourier_random_features_ridge_regression_KF(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
+    Fourier_random_features_svr_KF(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
    

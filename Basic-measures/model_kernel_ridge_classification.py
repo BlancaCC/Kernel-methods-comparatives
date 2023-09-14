@@ -57,8 +57,8 @@ class KernelRidgeClassifier(KernelRidge):
 
 # Create the pipeline
 pipeline = Pipeline([
-    ('scaler', StandardScaler()),
-    ('ridge_classification', KernelRidgeClassifier() )
+('scaler', StandardScaler()),
+('ridge_classification', KernelRidgeClassifier() )
 ])
 
 # Define the parameter grid
