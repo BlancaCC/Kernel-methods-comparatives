@@ -1,7 +1,9 @@
 ###################################################################
 # Template n component function
+# TODO: HACE FALTA TENER UN CONTROL DE QUÉ ES REGRESIÓN Y QUÉ CLASIFICACIÓN
 ###################################################################
-from hyperparameters_config.param_grid_values import get_n_components_list, percent
+from hyperparameters_config.param_grid_values import get_n_components_list
+from hyperparameters_config.param_grid_values import percent as list_of_percents
 import numpy as np
 import pandas as pd
 # https://scikit-learn.org/stable/modules/grid_search.html#successive-halving-user-guide
@@ -9,12 +11,12 @@ from sklearn.experimental import enable_halving_search_cv
 from sklearn.model_selection import GridSearchCV, HalvingGridSearchCV
 import joblib
 
-from sklearn.metrics import r2_score
+from sklearn.metrics import r2_score, accuracy_score, make_scorer
 
 
 from config import path_for_dataset
 from utils.nested_cross_validation import nested_cross_validation
-
+from utils.structure import data_structure, regression_type
 
 
 def template_n_components(X: np.ndarray, y: np.array,
@@ -89,12 +91,24 @@ def template_n_components(X: np.ndarray, y: np.array,
     hyperparameters_to_test = np.prod(list(map(lambda x: len(x), param_grid.values())))
     n_rows= X.shape[0]
 
-    n_components_list = get_n_components_list(n_rows)
+    if without_features: 
+        n_components_list = [n_rows] 
+        percent = [100]
+    else:
+        n_components_list = get_n_components_list(n_rows)
+        percent = list_of_percents
+
+    # score function 
+    if(data_structure[dataset_name]['type'] == regression_type):
+        score_function = r2_score
+    else:
+        score_function = accuracy_score
+
     # print information
     head_title = f'''
     {'-'*20}
     'Model: {model} 
-    \tDataset: {dataset_name}  of shape {X.shape} \tCV: {cv} \tn_jobs: {n_jobs}
+    \tDataset: {dataset_name} ({data_structure[dataset_name]['type']}) of shape {X.shape} \tCV: {cv} \tn_jobs: {n_jobs}
     \t params: { param_grid} 
     \t number of hyperparameter {hyperparameters_to_test}
     '''
@@ -128,47 +142,32 @@ def template_n_components(X: np.ndarray, y: np.array,
         "Std Best Score in CV": [] 
     }
 
-    if without_features:
-        #Define the parameter grid
+    for p,n_components in zip(percent,n_components_list):
+        print('-'*20+f'\nNumber of components for this iteration: {n_components}')
+
+        results_total['n_components'].append(n_components)
+        cv_results_total['n_components'] += [n_components for _ in range(4)] # una por cada nested cross validation
+
+        results_total['percent'].append(p)
+        cv_results_total['percent'] += [p for _ in range(4)] 
+
+        # Define the parameter grid
         # Create the GridSearchCV object
-        inner_estimator = get_inner_estimator(None)
+        inner_estimator = get_inner_estimator(n_components)
         # HalvingGridSearchCV is a faster way of implement GridSearchCV
-        #grid_search = GridSearchCV(inner_estimator, param_grid, cv=cv, n_jobs=n_jobs, refit=True)
-        grid_search = HalvingGridSearchCV(inner_estimator, param_grid, cv=cv, n_jobs=n_jobs, refit=True)
+        # why use HalvingGridSearch instead of GridSearch:
+        # https://scikit-learn.org/stable/auto_examples/model_selection/plot_successive_halving_heatmap.html
+        grid_search = GridSearchCV(inner_estimator, param_grid, cv=cv, n_jobs=n_jobs, refit=True, scoring=make_scorer(score_function))
+        #grid_search = HalvingGridSearchCV(inner_estimator, param_grid, cv=cv, n_jobs=n_jobs, refit=True)
         # Nested cross validation
-        results, cv_results = nested_cross_validation(X,y, grid_search, 4, r2_score)
+        results, cv_results = nested_cross_validation(X,y, grid_search, 4, score_function=score_function)
         for key in results.keys():
             results_total[key] += results[key]
         for key in cv_results.keys():
             cv_results_total[key] += cv_results[key]
-    else:
-        for p,n_components in zip(percent,n_components_list):
-            print('-'*20+f'\nNumber of components for this iteration: {n_components}')
-    
-            results_total['n_components'].append(n_components)
-            cv_results_total['n_components'] += [n_components for _ in range(4)] # una por cada nested cross validation
 
-            results_total['percent'].append(p)
-            cv_results_total['percent'] += [p for _ in range(4)] 
-
-            # Define the parameter grid
-            # Create the GridSearchCV object
-            inner_estimator = get_inner_estimator(n_components)
-            # HalvingGridSearchCV is a faster way of implement GridSearchCV
-            # why use HalvingGridSearch instead of GridSearch:
-            # https://scikit-learn.org/stable/auto_examples/model_selection/plot_successive_halving_heatmap.html
-            #grid_search = GridSearchCV(inner_estimator, param_grid, cv=cv, n_jobs=n_jobs, refit=True)
-            grid_search = HalvingGridSearchCV(inner_estimator, param_grid, cv=cv, n_jobs=n_jobs, refit=True)
-            # Nested cross validation
-            results, cv_results = nested_cross_validation(X,y, grid_search, 4, r2_score)
-            for key in results.keys():
-                results_total[key] += results[key]
-            for key in cv_results.keys():
-                cv_results_total[key] += cv_results[key]
-            
-
-            print(results)
-            print(cv_results)
+        print(results)
+        print(cv_results)
 
     print('Final results')
     print(results_total)
@@ -185,4 +184,4 @@ def template_n_components(X: np.ndarray, y: np.array,
     file.write(str(cv_results_total) + "\n")
     file.close()
     # This return have no sense
-    #return results, cv_results
+    return results_df, results_cv_df
