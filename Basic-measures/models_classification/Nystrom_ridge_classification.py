@@ -18,7 +18,7 @@ import hyperparameters_config.name_of_pipeline as name_pipeline
 
 def nested_Nystrom_ridge_classification(X, y,
                             dataset_name:str, cv:int, n_jobs:int):
-    model = 'Nyström and ridge classification'
+    model = 'Nystrom and ridge classification'
 
     dimension = X.shape[1]
     K = 5
