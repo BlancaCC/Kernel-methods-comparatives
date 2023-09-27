@@ -1,4 +1,5 @@
 fourier_random_features = 'fourier_random_features'
+nystrom = 'nystroem'
 ridge = 'ridge'
 scaler = 'scaler'
 svr = 'svr'

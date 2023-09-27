@@ -52,8 +52,8 @@ def function_param_grid_nystrom_ridge_classification(dimension:int, K:int, bias:
     gamma_space = np.logspace(start, end, num, base=base) / dimension
 
     return {
-        'nystroem__gamma' : gamma_space,
-        'ridge_classification__alpha' : np.logspace(-4, 2, 5, base=10)
+        f'{name_pipeline.nystrom}__gamma' : gamma_space,
+        f'{name_pipeline.ridge_classification }__alpha' : np.logspace(-4, 2, 5, base=10)
       }
 
 
@@ -66,7 +66,7 @@ def function_param_grid_nystrom_svm_classification(dimension:int, K:int, bias: i
     end = K + bias 
     gamma_space = np.logspace(start, end, num, base=base) / dimension
     return {
-        'nystroem__gamma' : gamma_space,
+         f'{name_pipeline.nystrom}__gamma' : gamma_space,
         'svm__C' : np.logspace(-4, 2, num, base=10)
     }
 
