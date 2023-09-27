@@ -1,19 +1,12 @@
 ###################################################################
-# Kernel ridge classification 
+# Random Fourier Features and Ridge Regression 
 # Nested cross validation based on template_n_component
 # name of the main function: `nested_kernel_ridge_classification`
 # Date end of September 2023 
 ###################################################################
-
-
-# For 
-from sklearn.experimental import enable_halving_search_cv # noqa
-from sklearn.model_selection import HalvingGridSearchCV
-
 from models_classification.params import function_param_grid_Fourier_random_features_ridge_classification
 from utils.template_n_components import template_n_components
-import numpy as np
-import pandas as pd
+
 from sklearn.preprocessing import  StandardScaler
 from sklearn.pipeline import Pipeline
 from sklearn.kernel_approximation import RBFSampler
