@@ -1,10 +1,15 @@
-from models_regression.Fourier_random_features_svr import Fourier_random_features_svr_KF
-from models_regression.Fourier_random_features_ridge import Fourier_random_features_ridge_regression_KF
-from models_regression.Nystrom_ridge_regression import Nystrom_ridge_regression_KF
-from get_data import get_data_without_split
-from models_regression.kernel_ridge import kernel_ridge_regression_KF
 import argparse
+from get_data import get_data_without_split
 
+# Models to test 
+# Ridge  regression family
+from models_regression.kernel_ridge_regression import nested_kernel_ridge_regression
+from models_regression.random_Fourier_features_ridge_regression import nested_random_Fourier_features_ridge_regression
+from models_regression.Nystrom_ridge_regression import nested_Nystrom_ridge_regression
+# SVR family 
+from models_regression.kernel_SVR import nested_kernel_SVR
+from models_regression.Nystrom_SVR import nested_Nystrom_SVR
+from models_regression.random_Fourier_features_SVR import nested_random_Fourier_features_SVR
 if __name__ == '__main__':
     # Parse command-line arguments
     parser = argparse.ArgumentParser(description='Model training and evaluation')
@@ -15,8 +20,12 @@ if __name__ == '__main__':
 
     # Get data 
     X,y = get_data_without_split(args.dataset)
-    #kernel_ridge_regression_KF(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
-    #Nystrom_ridge_regression_KF(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
-    #Fourier_random_features_ridge_regression_KF(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
-    Fourier_random_features_svr_KF(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
-   
+    # Models 
+    # Ridge Regressions family
+    nested_kernel_ridge_regression(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
+    nested_random_Fourier_features_ridge_regression(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
+    nested_Nystrom_ridge_regression(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
+    # SVC family
+    nested_kernel_SVR(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
+    nested_Nystrom_SVR(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
+    nested_random_Fourier_features_SVR(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)

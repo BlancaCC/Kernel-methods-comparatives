@@ -1,14 +1,15 @@
-#!/bin/sh
-
-cv=5
-njobs=8
-
 #!/bin/bash
 
+source ./bcano_python_ml/bin/activate
+cv=5
+njobs=5
+# si estás ejecutando en tu ordenador recuerda que tiene 8 núcleos de eficienca
+
 # Lista de nombres de conjuntos de datos
-# obviamos a9a por ser muy grande
-#datasets=( "Diabetes" "a9a" "covtype.binary")
-datasets=("Diabetes")
+# obviamos covtype por ser muy grande
+#datasets=( "Diabetes" "a9a" )
+datasets=( "w3a" "a7a" )
+
 # Itera sobre la lista de nombres de conjuntos de datos
 for dataset in "${datasets[@]}"; do
     echo " run classification models" "$(date)" for dataset "$dataset"

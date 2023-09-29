@@ -10,6 +10,7 @@ from models_classification.Nystrom_ridge_classification import nested_Nystrom_ri
 from models_classification.ksvm import nested_kernel_svm
 from models_classification.Nystrom_SVC import nested_Nystrom_SVC
 from models_classification.random_Fourier_features_SVC import nested_random_Fourier_features_SVC
+
 if __name__ == '__main__':
     # Parse command-line arguments
     parser = argparse.ArgumentParser(description='Model training and evaluation')
@@ -21,9 +22,11 @@ if __name__ == '__main__':
     # Get data 
     X,y = get_data_without_split(args.dataset)
     # Models 
-    #nested_kernel_ridge_classification(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
-    #nested_random_Fourier_features_ridge_classification(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
-    #nested_Nystrom_ridge_classification(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
-    #nested_kernel_svm(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
+    # Ridge Regressions family
+    nested_kernel_ridge_classification(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
+    nested_random_Fourier_features_ridge_classification(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
+    nested_Nystrom_ridge_classification(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
+    # SVC family
+    nested_kernel_svm(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
     nested_Nystrom_SVC(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)
     nested_random_Fourier_features_SVC(X,y, args.dataset, cv=args.cv, n_jobs=args.n_jobs)

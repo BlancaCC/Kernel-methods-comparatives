@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the path to the "data" directory
-data_dir="./data"
+data_dir="./Data"
 
 # Iterate through the folders in the "data" directory
 for folder in "$data_dir"/*; do
@@ -13,8 +13,11 @@ for folder in "$data_dir"/*; do
         mkdir -p "./results/$folder_name/verboses/"
         mkdir -p "./results/$folder_name/accuracy_time_stats/"
         mkdir -p "./results/$folder_name/joblib/"
+        mkdir -p "./analysis/$folder_name/"
+        mkdir -p "./analysis/$folder_name/latex_tables/"
+        mkdir -p "./analysis/$folder_name/plot/"
         
-        echo "Created result forlder for $folder_name"
+        echo "Created result and analys forlder for $folder_name"
     fi
 done
 
