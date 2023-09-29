@@ -2,7 +2,7 @@
 
 source ./bcano_python_ml/bin/activate
 cv=5
-njobs=5
+njobs=3
 #njobs=8
 # Lista de nombres de conjuntos de datos
 
