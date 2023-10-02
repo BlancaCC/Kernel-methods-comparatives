@@ -1,12 +1,12 @@
 
     --------------------
     'Model: Kernel SVR 
-    	Dataset: abalone (regression) of shape (100, 8) 	CV: 5 	n_jobs: 5
+    	Dataset: abalone (regression) of shape (4177, 8) 	CV: 5 	n_jobs: 3
     	 params: {'regressor__kernel_svm__C': array([1.e-02, 1.e-01, 1.e+00, 1.e+01, 1.e+02, 1.e+03, 1.e+04]), 'regressor__kernel_svm__gamma': array([1.22070312e-04, 1.38106793e-03, 1.56250000e-02, 1.76776695e-01,
        2.00000000e+00])} 
     	 number of hyperparameter 35
     
         All de dataset is used (not component selection)
         
-{'percent': [100], 'n_components': [100], 'Mean Score in test': [0.43317368162090253], 'Std Score in test': [0.12530343921039513], 'Mean Training Time': [0.0012325048446655273], 'Std Training Time': [0.00012645588605493817], 'Mean Best Score in CV': [0.44676414203697223], 'Std Best Score in CV': [0.03774507060764845]}
-{'percent': [100, 100, 100, 100], 'n_components': [100, 100, 100, 100], 'Score in test': [0.441785807829174, 0.630091123247043, 0.36803839644006675, 0.2927793989673261], 'Training Time': [0.0011699199676513672, 0.0011031627655029297, 0.0014400482177734375, 0.001216888427734375], 'Best Parameters': [{'regressor__kernel_svm__C': 100.0, 'regressor__kernel_svm__gamma': 0.0001220703125}, {'regressor__kernel_svm__C': 1.0, 'regressor__kernel_svm__gamma': 0.015625}, {'regressor__kernel_svm__C': 100.0, 'regressor__kernel_svm__gamma': 0.0001220703125}, {'regressor__kernel_svm__C': 100.0, 'regressor__kernel_svm__gamma': 0.0001220703125}], 'Best Score in CV': [0.4660222303593997, 0.38556937157206006, 0.4489742200215391, 0.4864907461948901]}
+{'percent': [100], 'n_components': [4177], 'Mean Score in test': [0.5623573195658936], 'Std Score in test': [0.019359194319223148], 'Mean Training Time': [0.7813099026679993], 'Std Training Time': [0.15539566556262271], 'Mean Best Score in CV': [0.56318236329338], 'Std Best Score in CV': [0.003719127066453734]}
+{'percent': [100, 100, 100, 100], 'n_components': [4177, 4177, 4177, 4177], 'Score in test': [0.5907097457360397, 0.5523951627137715, 0.5385521202752113, 0.567772249538552], 'Training Time': [0.8743398189544678, 0.7843201160430908, 0.9373924732208252, 0.5291872024536133], 'Best Parameters': [{'regressor__kernel_svm__C': 100.0, 'regressor__kernel_svm__gamma': 0.015625}, {'regressor__kernel_svm__C': 100.0, 'regressor__kernel_svm__gamma': 0.015625}, {'regressor__kernel_svm__C': 100.0, 'regressor__kernel_svm__gamma': 0.015625}, {'regressor__kernel_svm__C': 1.0, 'regressor__kernel_svm__gamma': 0.1767766952966369}], 'Best Score in CV': [0.5589806637511, 0.5601422379133647, 0.5678542203471009, 0.5657523311619543]}

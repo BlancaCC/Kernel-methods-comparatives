@@ -1,5 +1,0 @@
-,Best Parameters,Best Score in CV,Training Time,Score in test
-0,"{'regressor__kernel_ridge__alpha': 100.0, 'regressor__kernel_ridge__gamma': 7.947285970052083e-08}",0.7077561236415628,3.009856939315796,0.7114920118513612
-1,"{'regressor__kernel_ridge__alpha': 100.0, 'regressor__kernel_ridge__gamma': 7.947285970052083e-08}",0.7065177986632964,1.2201311588287354,0.7059945021888677
-2,"{'regressor__kernel_ridge__alpha': 10.0, 'regressor__kernel_ridge__gamma': 7.947285970052083e-08}",0.7162508055688397,1.1967198848724365,0.6934717166933091
-3,"{'regressor__kernel_ridge__alpha': 10.0, 'regressor__kernel_ridge__gamma': 7.947285970052083e-08}",0.7077189954577998,1.123966932296753,0.7193595016098779

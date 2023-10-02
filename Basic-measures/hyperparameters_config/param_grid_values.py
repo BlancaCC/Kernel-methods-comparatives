@@ -13,4 +13,10 @@ def get_n_components_list(n_rows:int)->list:
         if 0 in n_components_list:
                 n_components_list = list(map(lambda x: x+1, n_components_list))
                 warnings.warn('One of the components was zero', UserWarning)
+        n_components_list.sort()
         return n_components_list
+
+
+if __name__ == '__main__':
+        n_rows_cpu_small = 8192
+        print(get_n_components_list(n_rows_cpu_small))

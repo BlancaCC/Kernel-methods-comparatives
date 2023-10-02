@@ -1,12 +1,12 @@
 
     --------------------
     'Model: Kernel SVM 
-    	Dataset: Diabetes (classification) of shape (768, 8) 	CV: 5 	n_jobs: 8
+    	Dataset: Diabetes (classification) of shape (768, 8) 	CV: 5 	n_jobs: 2
     	 params: {'kernel_svm__C': array([1.e-02, 1.e-01, 1.e+00, 1.e+01, 1.e+02, 1.e+03, 1.e+04]), 'kernel_svm__gamma': array([1.22070312e-04, 1.38106793e-03, 1.56250000e-02, 1.76776695e-01,
        2.00000000e+00])} 
     	 number of hyperparameter 35
     
         All de dataset is used (not component selection)
         
-{'percent': [100], 'n_components': [768], 'Mean Score in test': [0.7630208333333334], 'Std Score in test': [0.010737254233379312], 'Mean Training Time': [0.005377292633056641], 'Std Training Time': [0.0016658143609442945], 'Mean Best Score in CV': [0.7751386806596703], 'Std Best Score in CV': [0.010017597757676161]}
-{'percent': [100, 100, 100, 100], 'n_components': [768, 768, 768, 768], 'Score in test': [0.7552083333333334, 0.75, 0.7708333333333334, 0.7760416666666666], 'Training Time': [0.003885030746459961, 0.003548145294189453, 0.007112979888916016, 0.006963014602661133], 'Best Parameters': [{'kernel_svm__C': 1.0, 'kernel_svm__gamma': 0.015625}, {'kernel_svm__C': 1.0, 'kernel_svm__gamma': 0.015625}, {'kernel_svm__C': 10000.0, 'kernel_svm__gamma': 0.0001220703125}, {'kernel_svm__C': 10000.0, 'kernel_svm__gamma': 0.0001220703125}], 'Best Score in CV': [0.7760119940029986, 0.7847076461769116, 0.7586356821589206, 0.78119940029985]}
+{'percent': [100], 'n_components': [768], 'Mean Score in test': [0.7669270833333334], 'Std Score in test': [0.027405683827928653], 'Mean Training Time': [0.020041227340698242], 'Std Training Time': [0.002525714430277793], 'Mean Best Score in CV': [0.7790254872563718], 'Std Best Score in CV': [0.015613190092105574]}
+{'percent': [100, 100, 100, 100], 'n_components': [768, 768, 768, 768], 'Score in test': [0.78125, 0.8020833333333334, 0.7552083333333334, 0.7291666666666666], 'Training Time': [0.018448352813720703, 0.018857240676879883, 0.018452882766723633, 0.02440643310546875], 'Best Parameters': [{'kernel_svm__C': 1.0, 'kernel_svm__gamma': 0.015625}, {'kernel_svm__C': 10.0, 'kernel_svm__gamma': 0.0013810679320049757}, {'kernel_svm__C': 1.0, 'kernel_svm__gamma': 0.015625}, {'kernel_svm__C': 10000.0, 'kernel_svm__gamma': 0.0001220703125}], 'Best Score in CV': [0.7638080959520239, 0.7655622188905546, 0.7846776611694153, 0.8020539730134933]}

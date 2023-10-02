@@ -1,0 +1,5 @@
+,percent,n_components,Score in test,Training Time,Best Parameters,Best Score in CV
+0,100,16100,0.8506832298136646,29.269654273986816,"{'kernel_ridge_classification__alpha': 0.025118864315095794, 'kernel_ridge_classification__gamma': 0.0003850905910849588}",0.8443064182194616
+1,100,16100,0.8404968944099379,29.178195476531982,"{'kernel_ridge_classification__alpha': 0.3981071705534969, 'kernel_ridge_classification__gamma': 0.0026819266479123837}",0.8452173913043477
+2,100,16100,0.8489440993788819,28.630101680755615,"{'kernel_ridge_classification__alpha': 0.001584893192461114, 'kernel_ridge_classification__gamma': 5.5294116063016006e-05}",0.8436438923395446
+3,100,16100,0.84,29.22022318840027,"{'kernel_ridge_classification__alpha': 0.001584893192461114, 'kernel_ridge_classification__gamma': 5.5294116063016006e-05}",0.848447204968944

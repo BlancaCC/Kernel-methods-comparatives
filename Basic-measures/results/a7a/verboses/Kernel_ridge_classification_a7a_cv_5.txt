@@ -1,0 +1,13 @@
+
+    --------------------
+    'Model: Kernel ridge classification 
+    	Dataset: a7a (classification) of shape (16100, 123) 	CV: 5 	n_jobs: 5
+    	 params: {'kernel_ridge_classification__gamma': array([7.93953252e-06, 5.52941161e-05, 3.85090591e-04, 2.68192665e-03,
+       1.86780220e-02, 1.30081301e-01]), 'kernel_ridge_classification__alpha': array([1.00000000e-04, 1.58489319e-03, 2.51188643e-02, 3.98107171e-01,
+       6.30957344e+00, 1.00000000e+02])} 
+    	 number of hyperparameter 36
+    
+        All de dataset is used (not component selection)
+        
+{'percent': [100], 'n_components': [16100], 'Mean Score in test': [0.8450310559006211], 'Std Score in test': [0.00482517157997564], 'Mean Training Time': [29.07454365491867], 'Std Training Time': [0.2586324847492494], 'Mean Best Score in CV': [0.8454037267080745], 'Std Best Score in CV': [0.001843812878989355]}
+{'percent': [100, 100, 100, 100], 'n_components': [16100, 16100, 16100, 16100], 'Score in test': [0.8506832298136646, 0.8404968944099379, 0.8489440993788819, 0.84], 'Training Time': [29.269654273986816, 29.178195476531982, 28.630101680755615, 29.22022318840027], 'Best Parameters': [{'kernel_ridge_classification__alpha': 0.025118864315095794, 'kernel_ridge_classification__gamma': 0.0003850905910849588}, {'kernel_ridge_classification__alpha': 0.3981071705534969, 'kernel_ridge_classification__gamma': 0.0026819266479123837}, {'kernel_ridge_classification__alpha': 0.001584893192461114, 'kernel_ridge_classification__gamma': 5.5294116063016006e-05}, {'kernel_ridge_classification__alpha': 0.001584893192461114, 'kernel_ridge_classification__gamma': 5.5294116063016006e-05}], 'Best Score in CV': [0.8443064182194616, 0.8452173913043477, 0.8436438923395446, 0.848447204968944]}

@@ -1,7 +1,7 @@
 
     --------------------
     'Model: Kernel ridge regression 
-    	Dataset: CPU_SMALL (regression) of shape (100, 12) 	CV: 5 	n_jobs: 5
+    	Dataset: CPU_SMALL (regression) of shape (8192, 12) 	CV: 5 	n_jobs: 3
     	 params: {'regressor__kernel_ridge__gamma': array([8.13802083e-05, 5.66764690e-04, 3.94717856e-03, 2.74897481e-02,
        1.91449726e-01, 1.33333333e+00]), 'regressor__kernel_ridge__alpha': array([1.00000000e-04, 1.58489319e-03, 2.51188643e-02, 3.98107171e-01,
        6.30957344e+00, 1.00000000e+02])} 
@@ -9,5 +9,5 @@
     
         All de dataset is used (not component selection)
         
-{'percent': [100], 'n_components': [100], 'Mean Score in test': [0.6808230028801391], 'Std Score in test': [0.35588357785282443], 'Mean Training Time': [0.014017701148986816], 'Std Training Time': [0.014408804055726383], 'Mean Best Score in CV': [0.6947802407682697], 'Std Best Score in CV': [0.1276050736036082]}
-{'percent': [100, 100, 100, 100], 'n_components': [100, 100, 100, 100], 'Score in test': [0.8646924955325077, 0.9015311348777275, 0.06486107872680869, 0.8922073023835124], 'Training Time': [0.005856037139892578, 0.006685972213745117, 0.0389409065246582, 0.004587888717651367], 'Best Parameters': [{'regressor__kernel_ridge__alpha': 0.025118864315095794, 'regressor__kernel_ridge__gamma': 0.0039471785586208275}, {'regressor__kernel_ridge__alpha': 0.025118864315095794, 'regressor__kernel_ridge__gamma': 0.0039471785586208275}, {'regressor__kernel_ridge__alpha': 0.001584893192461114, 'regressor__kernel_ridge__gamma': 0.000566764689645914}, {'regressor__kernel_ridge__alpha': 0.025118864315095794, 'regressor__kernel_ridge__gamma': 0.027489748141101934}], 'Best Score in CV': [0.8047466488853153, 0.543593036313468, 0.8364948513063858, 0.5942864265679096]}
+{'percent': [100], 'n_components': [8192], 'Mean Score in test': [0.9707105880718229], 'Std Score in test': [0.002287261531554971], 'Mean Training Time': [5.378748655319214], 'Std Training Time': [0.04803375660978384], 'Mean Best Score in CV': [0.9689845307411339], 'Std Best Score in CV': [0.000652044510585793]}
+{'percent': [100, 100, 100, 100], 'n_components': [8192, 8192, 8192, 8192], 'Score in test': [0.9721457115415532, 0.9733304746247206, 0.9700580963676612, 0.9673080697533564], 'Training Time': [5.443066835403442, 5.3635334968566895, 5.311447381973267, 5.396946907043457], 'Best Parameters': [{'regressor__kernel_ridge__alpha': 0.025118864315095794, 'regressor__kernel_ridge__gamma': 0.027489748141101934}, {'regressor__kernel_ridge__alpha': 0.025118864315095794, 'regressor__kernel_ridge__gamma': 0.027489748141101934}, {'regressor__kernel_ridge__alpha': 0.0001, 'regressor__kernel_ridge__gamma': 0.0039471785586208275}, {'regressor__kernel_ridge__alpha': 0.025118864315095794, 'regressor__kernel_ridge__gamma': 0.027489748141101934}], 'Best Score in CV': [0.9689107255700282, 0.9688187237729311, 0.9700095997649903, 0.968199073856586]}

@@ -1,3 +1,0 @@
-,Best Parameters,Best Score in CV,Training Time,Score in test
-0,"{'regressor__kernel_ridge__alpha': 100.0, 'regressor__kernel_ridge__gamma': 0.020833333333333332}",0.7014230037183851,0.5431010723114014,0.7060179797623232
-1,"{'regressor__kernel_ridge__alpha': 10.0, 'regressor__kernel_ridge__gamma': 0.020833333333333332}",0.7065079997178023,0.5190541744232178,0.7016467296872617

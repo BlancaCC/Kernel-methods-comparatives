@@ -1,0 +1,2 @@
+percent,n_components,Mean Score in test,Std Score in test,Mean Training Time,Std Training Time,Mean Best Score in CV,Std Best Score in CV
+100,16100,0.8450310559006211,0.00482517157997564,29.07454365491867,0.2586324847492494,0.8454037267080745,0.001843812878989355

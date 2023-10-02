@@ -11,7 +11,7 @@ def color_vector_features(color, luminiscente_coefficients = 0.6):
     adjust = lambda x: (1- luminiscente_coefficients )* x  + luminiscente_coefficients* luminance
     features = [
         adjust(red - green - blue),
-       adjust(green - blue - red),
+        adjust(green - blue - red),
         adjust(blue - red - green),
         adjust(red + green - blue),
         adjust(red + blue - green),
@@ -42,7 +42,7 @@ def get_comparatives(column:str, df_with_n_components, df_labels:list, title:str
     len_df = len(df_with_n_components)
     len_constant = len(constant_lines)
     # Plot dataframes
-    for df, label,color in zip(df_with_n_components,df_labels,colours[0:len_df] ):
+    for df, label,color in zip(df_with_n_components, df_labels, colours[0:len_df]):
         plt.plot(df['n_components'],  df[column], marker=marker,label= label, color = color)
 
     # Plot n_components contantes
@@ -65,6 +65,8 @@ def get_comparatives(column:str, df_with_n_components, df_labels:list, title:str
     plt.legend()
 
 
-def plot_comparatives(column:str, df_with_n_components, df_labels:list, title:str, constant_lines = [], constans_labels = [], log_scale = False, constant_margin = 0.001, marker = ''):
+def plot_comparatives(column:str, df_with_n_components, df_labels:list, 
+                      title:str, constant_lines = [], constans_labels = [], 
+                      log_scale = False, constant_margin = 0.001, marker = ''):
     get_comparatives(column, df_with_n_components, df_labels, title, constant_lines , constans_labels, log_scale, constant_margin, marker)
     plt.show()

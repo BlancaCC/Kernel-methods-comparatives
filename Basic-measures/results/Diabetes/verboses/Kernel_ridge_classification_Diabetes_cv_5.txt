@@ -1,7 +1,7 @@
 
     --------------------
     'Model: Kernel ridge classification 
-    	Dataset: Diabetes (classification) of shape (768, 8) 	CV: 5 	n_jobs: 8
+    	Dataset: Diabetes (classification) of shape (768, 8) 	CV: 5 	n_jobs: 2
     	 params: {'kernel_ridge_classification__gamma': array([1.22070312e-04, 8.50147034e-04, 5.92076784e-03, 4.12346222e-02,
        2.87174589e-01, 2.00000000e+00]), 'kernel_ridge_classification__alpha': array([1.00000000e-04, 1.58489319e-03, 2.51188643e-02, 3.98107171e-01,
        6.30957344e+00, 1.00000000e+02])} 
@@ -9,5 +9,5 @@
     
         All de dataset is used (not component selection)
         
-{'percent': [100], 'n_components': [768], 'Mean Score in test': [0.7630208333333334], 'Std Score in test': [0.02668476761968647], 'Mean Training Time': [0.007780969142913818], 'Std Training Time': [0.0018685233546362199], 'Mean Best Score in CV': [0.7725749625187406], 'Std Best Score in CV': [0.010063362167366027]}
-{'percent': [100, 100, 100, 100], 'n_components': [768, 768, 768, 768], 'Score in test': [0.7291666666666666, 0.7916666666666666, 0.7447916666666666, 0.7864583333333334], 'Training Time': [0.010986089706420898, 0.007002830505371094, 0.0068340301513671875, 0.006300926208496094], 'Best Parameters': [{'kernel_ridge_classification__alpha': 0.025118864315095794, 'kernel_ridge_classification__gamma': 0.005920767837931241}, {'kernel_ridge_classification__alpha': 0.001584893192461114, 'kernel_ridge_classification__gamma': 0.0001220703125}, {'kernel_ridge_classification__alpha': 0.001584893192461114, 'kernel_ridge_classification__gamma': 0.0001220703125}, {'kernel_ridge_classification__alpha': 0.3981071705534969, 'kernel_ridge_classification__gamma': 0.005920767837931241}], 'Best Score in CV': [0.788215892053973, 0.7656071964017992, 0.7743328335832084, 0.762143928035982]}
+{'percent': [100], 'n_components': [768], 'Mean Score in test': [0.7578125], 'Std Score in test': [0.010737254233379347], 'Mean Training Time': [0.03147280216217041], 'Std Training Time': [0.010920498249108826], 'Mean Best Score in CV': [0.7726199400299849], 'Std Best Score in CV': [0.005039660222950907]}
+{'percent': [100, 100, 100, 100], 'n_components': [768, 768, 768, 768], 'Score in test': [0.7447916666666666, 0.7708333333333334, 0.75, 0.765625], 'Training Time': [0.04914689064025879, 0.028690814971923828, 0.019229412078857422, 0.0288240909576416], 'Best Parameters': [{'kernel_ridge_classification__alpha': 0.0001, 'kernel_ridge_classification__gamma': 0.0008501470344688711}, {'kernel_ridge_classification__alpha': 0.025118864315095794, 'kernel_ridge_classification__gamma': 0.005920767837931241}, {'kernel_ridge_classification__alpha': 6.30957344480193, 'kernel_ridge_classification__gamma': 0.0412346222116529}, {'kernel_ridge_classification__alpha': 0.025118864315095794, 'kernel_ridge_classification__gamma': 0.005920767837931241}], 'Best Score in CV': [0.7795052473763119, 0.7708695652173913, 0.774407796101949, 0.7656971514242878]}
