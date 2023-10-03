@@ -52,34 +52,47 @@ data_structure = {
         'test' : 0.3,
         'n_features': 8,
         'type': classification_type,
+        'has_test':False
     },
     'w3a' : {
         'train' : 'w3a',
         'test' : 'w3a.t',
+        'has_test':True,
         'n_features': 300,
+        'type': classification_type,
+    },
+    'a5a' : {
+        'train' : 'a5a',
+        'test' : 'a5a.t',
+        'has_test':True,
+        'n_features': 123,
         'type': classification_type,
     },
     'a7a' : {
         'train' : 'a7a',
         'test' : 'a7a.t',
+        'has_test':True,
         'n_features': 123,
         'type': classification_type,
     },
     'a9a' : {
         'train' : 'a9a.txt',
         'test' : 'a9a.t',
+
         'n_features': 123,
         'type': classification_type,
     },
     'covtype.binary' :{
         'train' : 'covtype.libsvm.binary',
         'test' : 0.3, 
+        'has_test':False,
         'n_features' : 54,
         'type': classification_type,
     },
     'abalone' : {
         'train' : 'abalone',
         'test' : 0.3,
+        'has_test':False,
         'n_features': 8,
         'type': regression_type,
         'has_test':False
@@ -87,6 +100,7 @@ data_structure = {
     'CPU_SMALL' : {
         'train' : 'cpusmall',
         'test' : 0.3,
+        'has_test':False,
         'n_features': 12,
         'type': regression_type,
         'has_test':False

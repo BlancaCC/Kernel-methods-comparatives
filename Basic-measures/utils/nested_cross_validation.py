@@ -3,7 +3,7 @@
 ##########################################################################
 import numpy as np
 from sklearn.utils import shuffle
-
+seed = 123
 # Función para dividir los datos en k pliegues
 def kfold_list(X,y, k):
     '''
@@ -17,7 +17,7 @@ def kfold_list(X,y, k):
     >>> list(y_test for X_train, y_train, X_test, y_test in kfold_list(X,y, k))
     [array([0, 1, 2]), array([3, 4, 5]), array([6, 7]), array([8, 9])]
     '''
-    X,y = shuffle(X,y)
+    X,y = shuffle(X,y, random_state=seed)
     n = len(y)
     fold_size =  n// k
     bias = n % k

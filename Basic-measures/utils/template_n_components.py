@@ -157,7 +157,15 @@ def template_n_components(X: np.ndarray, y: np.array,
         # HalvingGridSearchCV is a faster way of implement GridSearchCV
         # why use HalvingGridSearch instead of GridSearch:
         # https://scikit-learn.org/stable/auto_examples/model_selection/plot_successive_halving_heatmap.html
-        grid_search = GridSearchCV(inner_estimator, param_grid, cv=cv, n_jobs=n_jobs, refit=True, scoring=make_scorer(score_function))
+        #
+        # About randomness in GreadSearch: 
+        #For integer/None inputs, if the estimator is a classifier and y is either binary or multiclass, StratifiedKFold is used.
+        #  In all other cases, KFold is used. 
+        # These splitters are instantiated with shuffle=False
+        #  so the splits will be the same across calls.
+        grid_search = GridSearchCV(inner_estimator, param_grid, 
+                                   cv=cv, n_jobs=n_jobs, refit=True,
+                                     scoring=make_scorer(score_function))
         #grid_search = HalvingGridSearchCV(inner_estimator, param_grid, cv=cv, n_jobs=n_jobs, refit=True)
         # Nested cross validation
         results, cv_results = nested_cross_validation(X,y, grid_search, 4, score_function=score_function)
