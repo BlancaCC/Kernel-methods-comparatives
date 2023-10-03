@@ -20,4 +20,4 @@ clear:
 	bash clear.sh
 
 get_results:
-	scp -r bcano@casarrubuelos:./Basic-measures/results/ ./results/
+	scp -r bcano@casarrubuelos:./Basic-measures/results/ ./
