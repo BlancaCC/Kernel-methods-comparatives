@@ -37,14 +37,22 @@ def kfold_list(X,y, k):
 
 
 
-def nested_cross_validation(X,y,grid_search, k, score_function):
+def nested_cross_validation(X,y,grid_search, k, score_function, X_test, y_test):
     cv_results = { 
         "Best Parameters": [],
         "Best Score in CV": [],
         "Training Time":[],
-        "Score in test":[]
+        "Score in test":[],
+        'cv_mean_test_score':[],
+        'cv_std_test_score': [],
     }
-    for X_train, y_train, X_test, y_test in kfold_list(X,y, k):
+   
+    if type(X_test) is bool:
+        iterate_over = kfold_list(X,y, k)
+    else:
+        iterate_over = [(X,y, X_test, y_test)]
+
+    for X_train, y_train, X_test, y_test in iterate_over:
         # Fit the grid search on the data
         grid_search.fit(X_train, y_train)
 
@@ -56,11 +64,13 @@ def nested_cross_validation(X,y,grid_search, k, score_function):
         # Calculate the accuracy score on the test data
         score = score_function(y_test, y_pred)
         ## Add to results
+        best_index  = grid_search.best_index_
         cv_results["Best Parameters"].append(grid_search.best_params_)
         cv_results["Best Score in CV"].append(grid_search.best_score_)
         cv_results["Training Time"].append(grid_search.refit_time_)
         cv_results["Score in test"].append(score)
-
+        cv_results['cv_mean_test_score'].append(grid_search.cv_results_['mean_test_score'][best_index])
+        cv_results['cv_std_test_score'].append(grid_search.cv_results_['std_test_score'][best_index])
     results = {
         "Mean Score in test" :[np.mean(cv_results["Score in test"])],
         "Std Score in test" :[np.std(cv_results["Score in test"])],
@@ -68,5 +78,7 @@ def nested_cross_validation(X,y,grid_search, k, score_function):
         "Std Best Score in CV": [np.std(cv_results["Best Score in CV"])],
         "Mean Training Time": [np.mean(cv_results["Training Time"])],
         "Std Training Time": [np.std(cv_results["Training Time"])],
+        'cv_mean_test_score':[np.mean(cv_results['cv_mean_test_score'])],
+        'cv_std_test_score': [np.mean(cv_results['cv_std_test_score'])],
     }
     return results, cv_results

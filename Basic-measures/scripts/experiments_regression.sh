@@ -2,11 +2,12 @@
 
 source ./bcano_python_ml/bin/activate
 cv=5
-njobs=3
+njobs=5
 #njobs=8
 # Lista de nombres de conjuntos de datos
 
-datasets=( "abalone" "CPU_SMALL" )
+#datasets=( "eunite2001" "abalone" "CPU_SMALL" )
+datasets=( "abalone" )
 
 
 # Itera sobre la lista de nombres de conjuntos de datos

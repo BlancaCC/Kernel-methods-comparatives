@@ -1,6 +1,7 @@
 import warnings
+import numpy as np
 # Number from random features
-percent = [0.5, 1, 2,4,6,8,10,14,16,18,20,25]
+percent = [*list(map(int,np.linspace(1, 25, 16)))]
 
 def get_n_components_list(n_rows:int)->list:
         '''Gives the numbers of components 
@@ -18,5 +19,6 @@ def get_n_components_list(n_rows:int)->list:
 
 
 if __name__ == '__main__':
+        print(percent)
         n_rows_cpu_small = 8192
         print(get_n_components_list(n_rows_cpu_small))

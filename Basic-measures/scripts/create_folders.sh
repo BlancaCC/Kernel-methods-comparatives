@@ -2,7 +2,7 @@
 
 # Define the path to the "data" directory
 data_dir="./Data"
-
+mkdir -p "./results"
 # Iterate through the folders in the "data" directory
 for folder in "$data_dir"/*; do
     if [ -d "$folder" ]; then

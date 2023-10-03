@@ -8,7 +8,8 @@ njobs=5
 # Lista de nombres de conjuntos de datos
 # obviamos covtype por ser muy grande
 #datasets=( "Diabetes" "a9a" )
-datasets=( "w3a" "a7a" )
+#datasets=( "w3a" "a7a" )
+datasets=( "Diabetes" )
 
 # Itera sobre la lista de nombres de conjuntos de datos
 for dataset in "${datasets[@]}"; do

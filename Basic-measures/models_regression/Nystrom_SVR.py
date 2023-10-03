@@ -18,7 +18,7 @@ from utils.template_n_components import template_n_components
 import hyperparameters_config.name_of_pipeline as name_pipeline
 
 def nested_Nystrom_SVR(X, y,
-                            dataset_name:str, cv:int, n_jobs:int):
+                            dataset_name:str, cv:int, n_jobs:int, X_test=False, y_test=False):
     model = 'Nystrom and SVR'
 
     dimension = X.shape[1]
@@ -49,7 +49,7 @@ def nested_Nystrom_SVR(X, y,
     results, cv_results = template_n_components(X, y,
                                 dataset_name, cv, n_jobs, model,
                                 param_grid, get_inner_estimator, 
-                                without_features=False)
+                                without_features=False, X_test=X_test, y_test=y_test)
     return results, cv_results
    
      

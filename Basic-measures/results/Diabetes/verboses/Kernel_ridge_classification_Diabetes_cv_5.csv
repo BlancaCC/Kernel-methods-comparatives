@@ -1,0 +1,2 @@
+,percent,n_components,Score in test,Training Time,Best Parameters,Best Score in CV
+0,100,537,0.70995670995671,0.03831672668457031,"{'kernel_ridge_classification__alpha': 0.001584893192461114, 'kernel_ridge_classification__gamma': 0.0008501470344688711}",0.8025441329179646

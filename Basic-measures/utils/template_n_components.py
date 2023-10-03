@@ -21,7 +21,8 @@ from utils.structure import data_structure, regression_type
 
 def template_n_components(X: np.ndarray, y: np.array,
                             dataset_name:str, cv:int, n_jobs:int, model:str,
-                            param_grid:dict, get_inner_estimator, without_features = False)-> tuple:
+                            param_grid:dict, get_inner_estimator, without_features = False,
+                            X_test=False, y_test=False)-> tuple:
     ''' Compute nested validation cv for a dataset 
 
     Params
@@ -130,6 +131,8 @@ def template_n_components(X: np.ndarray, y: np.array,
         "Training Time":[],
         "Best Parameters": [],
         "Best Score in CV": [], 
+        'cv_mean_test_score':[],
+        'cv_std_test_score': [],
     }
     results_total = {
         'percent' : [],
@@ -139,17 +142,20 @@ def template_n_components(X: np.ndarray, y: np.array,
         "Mean Training Time": [],
         "Std Training Time": [],
         "Mean Best Score in CV": [],
-        "Std Best Score in CV": [] 
+        "Std Best Score in CV": [],
+        'cv_mean_test_score':[],
+        'cv_std_test_score': [],
     }
 
+    k_fold_size = 4 if type(X_test) is bool else 1
     for p,n_components in zip(percent,n_components_list):
         print('-'*20+f'\nNumber of components for this iteration: {n_components}')
 
         results_total['n_components'].append(n_components)
-        cv_results_total['n_components'] += [n_components for _ in range(4)] # una por cada nested cross validation
+        cv_results_total['n_components'] += [n_components for _ in range(k_fold_size)] # una por cada nested cross validation
 
         results_total['percent'].append(p)
-        cv_results_total['percent'] += [p for _ in range(4)] 
+        cv_results_total['percent'] += [p for _ in range(k_fold_size)] 
 
         # Define the parameter grid
         # Create the GridSearchCV object
@@ -159,7 +165,7 @@ def template_n_components(X: np.ndarray, y: np.array,
         # https://scikit-learn.org/stable/auto_examples/model_selection/plot_successive_halving_heatmap.html
         #
         # About randomness in GreadSearch: 
-        #For integer/None inputs, if the estimator is a classifier and y is either binary or multiclass, StratifiedKFold is used.
+        # For integer/None inputs, if the estimator is a classifier and y is either binary or multiclass, StratifiedKFold is used.
         #  In all other cases, KFold is used. 
         # These splitters are instantiated with shuffle=False
         #  so the splits will be the same across calls.
@@ -168,7 +174,8 @@ def template_n_components(X: np.ndarray, y: np.array,
                                      scoring=make_scorer(score_function))
         #grid_search = HalvingGridSearchCV(inner_estimator, param_grid, cv=cv, n_jobs=n_jobs, refit=True)
         # Nested cross validation
-        results, cv_results = nested_cross_validation(X,y, grid_search, 4, score_function=score_function)
+        results, cv_results = nested_cross_validation(X,y, grid_search, 4, score_function=score_function,
+                                                      X_test=X_test, y_test=y_test)
         for key in results.keys():
             results_total[key] += results[key]
         for key in cv_results.keys():

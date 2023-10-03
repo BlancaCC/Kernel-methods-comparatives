@@ -50,9 +50,9 @@ data_structure = {
     'Diabetes' : {
         'train' : 'diabetes',
         'test' : 0.3,
+        'has_test':False, # poner a false
         'n_features': 8,
         'type': classification_type,
-        'has_test':False
     },
     'w3a' : {
         'train' : 'w3a',
@@ -78,7 +78,7 @@ data_structure = {
     'a9a' : {
         'train' : 'a9a.txt',
         'test' : 'a9a.t',
-
+        'has_test':True,
         'n_features': 123,
         'type': classification_type,
     },
@@ -89,13 +89,19 @@ data_structure = {
         'n_features' : 54,
         'type': classification_type,
     },
+     'eunite2001' : {
+        'train' : 'eunite2001',
+        'test' : 'eunite2001.t',
+        'has_test': True,
+        'n_features': 16,
+        'type': regression_type,
+    },
     'abalone' : {
         'train' : 'abalone',
-        'test' : 0.3,
-        'has_test':False,
+        'test' : 0.8,
+        'has_test': False, 
         'n_features': 8,
         'type': regression_type,
-        'has_test':False
     },
     'CPU_SMALL' : {
         'train' : 'cpusmall',

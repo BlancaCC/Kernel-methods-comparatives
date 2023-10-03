@@ -1,0 +1,13 @@
+
+    --------------------
+    'Model: Kernel ridge regression 
+    	Dataset: abalone (regression) of shape (4177, 8) 	CV: 5 	n_jobs: 5
+    	 params: {'regressor__kernel_ridge__gamma': array([1.22070312e-04, 8.50147034e-04, 5.92076784e-03, 4.12346222e-02,
+       2.87174589e-01, 2.00000000e+00]), 'regressor__kernel_ridge__alpha': array([1.00000000e-04, 1.58489319e-03, 2.51188643e-02, 3.98107171e-01,
+       6.30957344e+00, 1.00000000e+02])} 
+    	 number of hyperparameter 36
+    
+        All de dataset is used (not component selection)
+        
+{'percent': [100], 'n_components': [4177], 'Mean Score in test': [0.5800387576326327], 'Std Score in test': [0.026024938722092165], 'Mean Training Time': [0.428394615650177], 'Std Training Time': [0.011334944333900542], 'Mean Best Score in CV': [0.5747814849383976], 'Std Best Score in CV': [0.009917487939097865], 'cv_mean_test_score': [0.5747814849383976], 'cv_std_test_score': [0.024770280432069868]}
+{'percent': [100, 100, 100, 100], 'n_components': [4177, 4177, 4177, 4177], 'Score in test': [0.5635549097623234, 0.5630107930104339, 0.6249549207482917, 0.5686344070094818], 'Training Time': [0.43072009086608887, 0.4323129653930664, 0.440662145614624, 0.4098832607269287], 'Best Parameters': [{'regressor__kernel_ridge__alpha': 0.025118864315095794, 'regressor__kernel_ridge__gamma': 0.0412346222116529}, {'regressor__kernel_ridge__alpha': 0.025118864315095794, 'regressor__kernel_ridge__gamma': 0.0412346222116529}, {'regressor__kernel_ridge__alpha': 0.025118864315095794, 'regressor__kernel_ridge__gamma': 0.0412346222116529}, {'regressor__kernel_ridge__alpha': 0.025118864315095794, 'regressor__kernel_ridge__gamma': 0.0412346222116529}], 'Best Score in CV': [0.5838573251448992, 0.5795391326513402, 0.5580479826831514, 0.5776814992741997], 'cv_mean_test_score': [0.5838573251448992, 0.5795391326513402, 0.5580479826831514, 0.5776814992741997], 'cv_std_test_score': [0.03535989378325236, 0.029844788000880768, 0.007801807143589258, 0.026074632800557083]}
