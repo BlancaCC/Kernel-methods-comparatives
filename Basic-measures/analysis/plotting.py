@@ -35,7 +35,8 @@ colours = list(itertools.chain.from_iterable(list(zip(*[ ordenar_y_extraer_nombr
 
 colours = colours[3:]
 
-def get_comparatives(column:str, df_with_n_components, df_labels:list, title:str, std_column:dict, 
+def get_comparatives(column:str, df_with_n_components, df_labels:list, title:str, 
+                     names_of_std_for_column:dict, 
                      constant_lines = [], constant_labels = [], constant_std = [], log_scale  = False, constant_margin = 0.001, marker = ''):
     axis_x_name = 'n_components in %'
     column_x = "percent"
@@ -47,19 +48,16 @@ def get_comparatives(column:str, df_with_n_components, df_labels:list, title:str
     # Plot dataframes
     for df, label,color in zip(df_with_n_components, df_labels, colours[0:len_df]):
         plt.plot(df[column_x],  df[column], marker=marker,label= label, color = color)
-        if std_column[column] != False:
+        if names_of_std_for_column[column] != False:
+            std = df[names_of_std_for_column[column]]
             # Crear el área sombreada alrededor de ±1 std
-            std = df[std_column[column]]
-            print('Column ', column,'\n',
-            std
-            )
-            plt.fill_between(df[column_x],(df[column] - std).to_list() , df[column] + std, alpha=alpha_std_area, color=color)
+            plt.fill_between(df[column_x],df[column] - std , df[column] + std, alpha=alpha_std_area, color=color)
 
 
     # Plot n_components contantes
     for constant_value, label,std, color in zip(constant_lines, constant_labels,  constant_std,colours[len_df: len_df+len_constant]):
         plt.axhline(y=constant_value,  label=label, color=color, linestyle = "--")
-        if std_column[column] != False:
+        if names_of_std_for_column[column] != False:
             plt.fill_between(df[column_x], constant_value - std, constant_value + std, alpha=alpha_std_area, color=color)
     
     if len_df == 0:
@@ -80,30 +78,30 @@ def get_comparatives(column:str, df_with_n_components, df_labels:list, title:str
 
 
 def plot_comparatives(column:str, df_with_n_components, df_labels:list, 
-                      title:str, std_column:dict, 
+                      title:str, names_of_std_for_column:dict, 
                       constant_lines = [], constant_labels = [], constant_std = [], 
                       log_scale = False, constant_margin = 0.001, marker = ''):
-    get_comparatives(column, df_with_n_components, df_labels, std_column, title, constant_lines , constant_labels,constant_std, log_scale, constant_margin, marker)
+    get_comparatives(column, df_with_n_components, df_labels, title,names_of_std_for_column, constant_lines , constant_labels,constant_std, log_scale, constant_margin, marker)
     plt.show()
 
-def view_plots_and_save_them(df_list:list, df_list_names:list, std_column:dict, type:str,
+def view_plots_and_save_them(df_list:list, df_list_names:list, names_of_std_for_column:dict, type:str,
                           columns:list, database:str, plot_path:str):
     for column in columns:
         title = f"{type}_{column.replace(' ', '_')}_{database}"
 
         constant_lines = df_list[0][column].to_list()
-        if std_column[column] == False:
+        if names_of_std_for_column[column] == False:
             constant_std = [0]
         else:
-            constant_std = df_list[0][std_column[column]]
+            constant_std = df_list[0][names_of_std_for_column[column]]
         constant_labels = [df_list_names[0]]
-        plt.clf()
-        get_comparatives(column, df_list[1:], df_list_names[1:], title, std_column, constant_lines, constant_labels, constant_std)
+        get_comparatives(column, df_list[1:], df_list_names[1:], title, 
+                         names_of_std_for_column,
+                        constant_lines, constant_labels, constant_std)
         save_route =  plot_path+ title
         # Guarda el gráfico en la ubicación especificada por save_path
         plt.savefig(save_route, bbox_inches='tight')  # bbox_inches='tight' ajusta los márgenes para que se ajusten correctamente
-        plt.clf()
-        #plot_comparatives(column, df_list[1:], df_list_names[1:], title, std_column, constant_lines, constant_labels, constant_std)
+        plot_comparatives(column, df_list[1:], df_list_names[1:], title, names_of_std_for_column, constant_lines, constant_labels, constant_std)
         # Muestra el gráfico en pantalla
-        #plt.show()
+        plt.show()
 

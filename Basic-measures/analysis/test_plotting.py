@@ -1,8 +1,9 @@
-if __name__ == '__main__':
-    import os
+
+import os
 import pandas as pd
 
-database = 'eunite2001'
+#database = 'eunite2001'
+database = 'Diabetes'
 
 path = '/Users/blancacanocamarero/repositorios/TFM/Kernel-methods-comparatives/Basic-measures/'
 directory = path + f'results/{database}/accuracy_time_stats'  # Replace this with the path to your directory
@@ -91,23 +92,23 @@ for file in svm_files:
     data['File'] = file  # Add a column to identify the file
     svm_data_verbose = pd.concat([svm_data_verbose, data], ignore_index=True)
 
-    std_column = {score_column:'Std Score in test', 
-                  time_column:'Std Training Time',
-                  damping_column:False
+names_of_std_for_column = {score_column:'Std Score in test', 
+    time_column:'Std Training Time',
+    damping_column:False
+}
+if (ridge_list[0][names_of_std_for_column[score_column]] == 0).all():
+    names_of_std_for_column = {score_column:'cv_std_test_score', 
+        time_column:'cv_std_fit_time',
+        damping_column:False
     }
-    if (ridge_list[0][std_column[score_column]] == 0).all():
-        std_column = {score_column:'cv_std_test_score', 
-                  time_column:'cv_std_fit_time',
-                  damping_column:False
-        }
 
-    print(std_column)
+print(names_of_std_for_column)
 
-    from plotting import view_plots_and_save_them
+from plotting import view_plots_and_save_them
 
 
-    columns = [score_column, time_column, damping_column ]
-    
-    view_plots_and_save_them(df_list = ridge_list, df_list_names=ridge_list_names,
-                            std_column=std_column, type ='ridge',
-                            columns=columns, database=database, plot_path = plot_path)
+columns = [score_column, time_column, damping_column ]
+
+view_plots_and_save_them(df_list = ridge_list, df_list_names=ridge_list_names,
+            names_of_std_for_column=names_of_std_for_column, type ='ridge',
+            columns=columns, database=database, plot_path = plot_path)
