@@ -1,0 +1,2 @@
+,percent,n_components,Score in test,Training Time,Best Parameters,Best Score in CV,cv_mean_test_score,cv_std_test_score,cv_mean_fit_time,cv_std_fit_time
+0,100,4912,0.9704708165131476,2.48335599899292,"{'kernel_ridge_classification__alpha': 0.3981071705534969, 'kernel_ridge_classification__gamma': 3.2552083333333335e-06}",0.9709053916581892,0.9709053916581892,0.05818921668362158,2.7756776332855226,0.29054699217400837
