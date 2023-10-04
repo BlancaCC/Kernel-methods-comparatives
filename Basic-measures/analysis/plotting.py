@@ -37,7 +37,9 @@ colours = colours[3:]
 
 def get_comparatives(column:str, df_with_n_components, df_labels:list, title:str, 
                      names_of_std_for_column:dict, 
-                     constant_lines = [], constant_labels = [], constant_std = [], log_scale  = False, constant_margin = 0.001, marker = ''):
+                     constant_lines = [], constant_labels = [], constant_std = [], 
+                     log_scale  = False, constant_margin = 0.001, marker = '',
+                     percent_of_n_components_bigger_than = 0):
     axis_x_name = 'n_components in %'
     column_x = "percent"
     alpha_std_area = 0.2
@@ -46,19 +48,21 @@ def get_comparatives(column:str, df_with_n_components, df_labels:list, title:str
     len_df = len(df_with_n_components)
     len_constant = len(constant_lines)
     # Plot dataframes
+    dominium = []
     for df, label,color in zip(df_with_n_components, df_labels, colours[0:len_df]):
+        df = df[df[column_x]>= percent_of_n_components_bigger_than]
         plt.plot(df[column_x],  df[column], marker=marker,label= label, color = color)
+        dominium = df[column_x]
         if names_of_std_for_column[column] != False:
             std = df[names_of_std_for_column[column]]
             # Crear el área sombreada alrededor de ±1 std
             plt.fill_between(df[column_x],df[column] - std , df[column] + std, alpha=alpha_std_area, color=color)
 
-
     # Plot n_components contantes
     for constant_value, label,std, color in zip(constant_lines, constant_labels,  constant_std,colours[len_df: len_df+len_constant]):
         plt.axhline(y=constant_value,  label=label, color=color, linestyle = "--")
         if names_of_std_for_column[column] != False:
-            plt.fill_between(df[column_x], constant_value - std, constant_value + std, alpha=alpha_std_area, color=color)
+            plt.fill_between(dominium, constant_value - std, constant_value + std, alpha=alpha_std_area, color=color)
     
     if len_df == 0:
         y_min = min(constant_lines) *(1- constant_margin)
@@ -80,14 +84,21 @@ def get_comparatives(column:str, df_with_n_components, df_labels:list, title:str
 def plot_comparatives(column:str, df_with_n_components, df_labels:list, 
                       title:str, names_of_std_for_column:dict, 
                       constant_lines = [], constant_labels = [], constant_std = [], 
-                      log_scale = False, constant_margin = 0.001, marker = ''):
-    get_comparatives(column, df_with_n_components, df_labels, title,names_of_std_for_column, constant_lines , constant_labels,constant_std, log_scale, constant_margin, marker)
+                      log_scale = False, constant_margin = 0.001, marker = '',
+                      percent_of_n_components_bigger_than = 0):
+    get_comparatives(column, 
+                     df_with_n_components, df_labels, title,names_of_std_for_column,
+                       constant_lines , constant_labels,constant_std, log_scale, 
+                       constant_margin, marker,
+                       percent_of_n_components_bigger_than)
     plt.show()
 
 def view_plots_and_save_them(df_list:list, df_list_names:list, names_of_std_for_column:dict, type:str,
-                          columns:list, database:str, plot_path:str):
+                          columns:list, database:str, plot_path:str,
+                          percent_of_n_components_bigger_than = 0):
     for column in columns:
         title = f"{type}_{column.replace(' ', '_')}_{database}"
+        title += f'_starting_at_{percent_of_n_components_bigger_than}_percent'
 
         constant_lines = df_list[0][column].to_list()
         if names_of_std_for_column[column] == False:
@@ -97,11 +108,16 @@ def view_plots_and_save_them(df_list:list, df_list_names:list, names_of_std_for_
         constant_labels = [df_list_names[0]]
         get_comparatives(column, df_list[1:], df_list_names[1:], title, 
                          names_of_std_for_column,
-                        constant_lines, constant_labels, constant_std)
+                        constant_lines, constant_labels, constant_std,
+                        percent_of_n_components_bigger_than=percent_of_n_components_bigger_than)
         save_route =  plot_path+ title
         # Guarda el gráfico en la ubicación especificada por save_path
         plt.savefig(save_route, bbox_inches='tight')  # bbox_inches='tight' ajusta los márgenes para que se ajusten correctamente
-        plot_comparatives(column, df_list[1:], df_list_names[1:], title, names_of_std_for_column, constant_lines, constant_labels, constant_std)
+        #plot_comparatives(column, 
+        #                  df_list[1:], df_list_names[1:],
+        #                    title, names_of_std_for_column, constant_lines, constant_labels,
+        #                    constant_std,
+        #                    percent_of_n_components_bigger_than=percent_of_n_components_bigger_than)
         # Muestra el gráfico en pantalla
         plt.show()
 

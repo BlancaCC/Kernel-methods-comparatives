@@ -3,8 +3,8 @@ import os
 import pandas as pd
 
 #database = 'eunite2001'
-database = 'Diabetes'
-
+#database = 'Diabetes'
+database = 'abalone'
 path = '/Users/blancacanocamarero/repositorios/TFM/Kernel-methods-comparatives/Basic-measures/'
 directory = path + f'results/{database}/accuracy_time_stats'  # Replace this with the path to your directory
 verbose_path = path + f'results/{database}/verboses'
@@ -111,4 +111,5 @@ columns = [score_column, time_column, damping_column ]
 
 view_plots_and_save_them(df_list = ridge_list, df_list_names=ridge_list_names,
             names_of_std_for_column=names_of_std_for_column, type ='ridge',
-            columns=columns, database=database, plot_path = plot_path)
+            columns=columns, database=database, plot_path = plot_path,
+            percent_of_n_components_bigger_than=14)
