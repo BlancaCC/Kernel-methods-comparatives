@@ -45,6 +45,8 @@ def nested_cross_validation(X,y,grid_search, k, score_function, X_test, y_test):
         "Score in test":[],
         'cv_mean_test_score':[],
         'cv_std_test_score': [],
+        'cv_mean_fit_time' : [],
+        'cv_std_fit_time' : []
     }
    
     if type(X_test) is bool:
@@ -71,6 +73,8 @@ def nested_cross_validation(X,y,grid_search, k, score_function, X_test, y_test):
         cv_results["Score in test"].append(score)
         cv_results['cv_mean_test_score'].append(grid_search.cv_results_['mean_test_score'][best_index])
         cv_results['cv_std_test_score'].append(grid_search.cv_results_['std_test_score'][best_index])
+        cv_results['cv_mean_fit_time'].append(grid_search.cv_results_['mean_fit_time'][best_index])
+        cv_results['cv_std_fit_time'].append(grid_search.cv_results_['std_fit_time'][best_index])
     results = {
         "Mean Score in test" :[np.mean(cv_results["Score in test"])],
         "Std Score in test" :[np.std(cv_results["Score in test"])],
@@ -80,5 +84,7 @@ def nested_cross_validation(X,y,grid_search, k, score_function, X_test, y_test):
         "Std Training Time": [np.std(cv_results["Training Time"])],
         'cv_mean_test_score':[np.mean(cv_results['cv_mean_test_score'])],
         'cv_std_test_score': [np.mean(cv_results['cv_std_test_score'])],
+        'cv_mean_fit_time':[np.mean(cv_results['cv_mean_fit_time'])],
+        'cv_std_fit_time': [np.mean(cv_results['cv_std_fit_time'])],
     }
     return results, cv_results

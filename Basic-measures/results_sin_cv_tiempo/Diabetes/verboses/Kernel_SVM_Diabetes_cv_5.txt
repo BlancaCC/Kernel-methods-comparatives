@@ -1,0 +1,12 @@
+
+    --------------------
+    'Model: Kernel SVM 
+    	Dataset: Diabetes (classification) of shape (768, 8) 	CV: 5 	n_jobs: 5
+    	 params: {'kernel_svm__C': array([1.e-02, 1.e-01, 1.e+00, 1.e+01, 1.e+02, 1.e+03, 1.e+04]), 'kernel_svm__gamma': array([1.22070312e-04, 1.38106793e-03, 1.56250000e-02, 1.76776695e-01,
+       2.00000000e+00])} 
+    	 number of hyperparameter 35
+    
+        All de dataset is used (not component selection)
+        
+{'percent': [100], 'n_components': [768], 'Mean Score in test': [0.7747395833333334], 'Std Score in test': [0.03989987876574105], 'Mean Training Time': [0.027337253093719482], 'Std Training Time': [0.0034159066511542427], 'Mean Best Score in CV': [0.7768815592203899], 'Std Best Score in CV': [0.016686255923827283], 'cv_mean_test_score': [0.7768815592203899], 'cv_std_test_score': [0.03619394846664593]}
+{'percent': [100, 100, 100, 100], 'n_components': [768, 768, 768, 768], 'Score in test': [0.8125, 0.7552083333333334, 0.71875, 0.8125], 'Training Time': [0.02149343490600586, 0.029169082641601562, 0.028594970703125, 0.030091524124145508], 'Best Parameters': [{'kernel_svm__C': 1000.0, 'kernel_svm__gamma': 0.0001220703125}, {'kernel_svm__C': 10.0, 'kernel_svm__gamma': 0.0013810679320049757}, {'kernel_svm__C': 1.0, 'kernel_svm__gamma': 0.015625}, {'kernel_svm__C': 10.0, 'kernel_svm__gamma': 0.0013810679320049757}], 'Best Score in CV': [0.7638830584707647, 0.7846776611694153, 0.800344827586207, 0.7586206896551724], 'cv_mean_test_score': [0.7638830584707647, 0.7846776611694153, 0.800344827586207, 0.7586206896551724], 'cv_std_test_score': [0.03868078751300886, 0.034758871081155426, 0.03160039976153145, 0.03973573551088796]}

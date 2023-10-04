@@ -1,2 +1,2 @@
-,percent,n_components,Score in test,Training Time,Best Parameters,Best Score in CV,cv_mean_test_score,cv_std_test_score
-0,100,336,0.7672913328168345,0.0260009765625,"{'regressor__kernel_svm__C': 1000.0, 'regressor__kernel_svm__gamma': 6.103515625e-05}",0.8026817475236998,0.8026817475236998,0.03568055169670836
+,percent,n_components,Score in test,Training Time,Best Parameters,Best Score in CV,cv_mean_test_score,cv_std_test_score,cv_mean_fit_time,cv_std_fit_time
+0,100,336,0.7672913328169106,0.004530191421508789,"{'regressor__kernel_svm__C': 1000.0, 'regressor__kernel_svm__gamma': 6.103515625e-05}",0.8026817475236875,0.8026817475236875,0.03568055169667298,0.005954551696777344,0.0033042498723433937

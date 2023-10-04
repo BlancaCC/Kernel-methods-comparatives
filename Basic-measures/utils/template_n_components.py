@@ -133,6 +133,8 @@ def template_n_components(X: np.ndarray, y: np.array,
         "Best Score in CV": [], 
         'cv_mean_test_score':[],
         'cv_std_test_score': [],
+        'cv_mean_fit_time' : [],
+        'cv_std_fit_time' : []
     }
     results_total = {
         'percent' : [],
@@ -145,6 +147,8 @@ def template_n_components(X: np.ndarray, y: np.array,
         "Std Best Score in CV": [],
         'cv_mean_test_score':[],
         'cv_std_test_score': [],
+        'cv_mean_fit_time' : [],
+        'cv_std_fit_time' : []
     }
 
     k_fold_size = 4 if type(X_test) is bool else 1

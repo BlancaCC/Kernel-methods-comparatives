@@ -8,6 +8,7 @@ njobs=5
 
 #datasets=( "eunite2001" "abalone" "CPU_SMALL" )
 datasets=( "abalone" )
+#datasets=( "eunite2001" )
 
 
 # Itera sobre la lista de nombres de conjuntos de datos
