@@ -1,0 +1,12 @@
+
+    --------------------
+    'Model: Kernel SVR 
+    	Dataset: abalone (regression) of shape (4177, 8) 	CV: 5 	n_jobs: 5
+    	 params: {'regressor__kernel_svm__C': array([1.e-02, 1.e-01, 1.e+00, 1.e+01, 1.e+02, 1.e+03, 1.e+04]), 'regressor__kernel_svm__gamma': array([1.22070312e-04, 1.38106793e-03, 1.56250000e-02, 1.76776695e-01,
+       2.00000000e+00])} 
+    	 number of hyperparameter 35
+    
+        All de dataset is used (not component selection)
+        
+{'percent': [100], 'n_components': [4177], 'Mean Score in test': [0.5149075846209643], 'Std Score in test': [0.09117441195027495], 'Mean Training Time': [1.3369281888008118], 'Std Training Time': [0.9203547523537267], 'Mean Best Score in CV': [0.5616491689293317], 'Std Best Score in CV': [0.009248052586205329], 'cv_mean_test_score': [0.5616491689293317], 'cv_std_test_score': [0.024097868767924753]}
+{'percent': [100, 100, 100, 100], 'n_components': [4177, 4177, 4177, 4177], 'Score in test': [0.5495066827814317, 0.35894002707774675, 0.5890633678962452, 0.5621202607284335], 'Training Time': [1.0485198497772217, 2.9111671447753906, 0.7018752098083496, 0.6861505508422852], 'Best Parameters': [{'regressor__kernel_svm__C': 100.0, 'regressor__kernel_svm__gamma': 0.015625}, {'regressor__kernel_svm__C': 10000.0, 'regressor__kernel_svm__gamma': 0.0013810679320049757}, {'regressor__kernel_svm__C': 1.0, 'regressor__kernel_svm__gamma': 0.1767766952966369}, {'regressor__kernel_svm__C': 1.0, 'regressor__kernel_svm__gamma': 0.1767766952966369}], 'Best Score in CV': [0.5712433550284043, 0.566571503610365, 0.5466299990193348, 0.5621518180592229], 'cv_mean_test_score': [0.5712433550284043, 0.566571503610365, 0.5466299990193348, 0.5621518180592229], 'cv_std_test_score': [0.03287485766901376, 0.026689439357529, 0.00962503053507415, 0.027202147510082108]}

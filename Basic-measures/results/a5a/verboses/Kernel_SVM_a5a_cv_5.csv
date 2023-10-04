@@ -1,0 +1,2 @@
+,percent,n_components,Score in test,Training Time,Best Parameters,Best Score in CV,cv_mean_test_score,cv_std_test_score
+0,100,6414,0.8438826634030673,2.678229331970215,"{'kernel_svm__C': 1000.0, 'kernel_svm__gamma': 7.939532520325204e-06}",0.8428435937125716,0.8428435937125716,0.008216639795499135

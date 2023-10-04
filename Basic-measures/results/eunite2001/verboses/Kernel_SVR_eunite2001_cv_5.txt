@@ -1,12 +1,12 @@
 
     --------------------
     'Model: Kernel SVR 
-    	Dataset: eunite2001 (regression) of shape (336, 16) 	CV: 5 	n_jobs: 3
+    	Dataset: eunite2001 (regression) of shape (336, 16) 	CV: 5 	n_jobs: 5
     	 params: {'regressor__kernel_svm__C': array([1.e-02, 1.e-01, 1.e+00, 1.e+01, 1.e+02, 1.e+03, 1.e+04]), 'regressor__kernel_svm__gamma': array([6.10351562e-05, 6.90533966e-04, 7.81250000e-03, 8.83883476e-02,
        1.00000000e+00])} 
     	 number of hyperparameter 35
     
         All de dataset is used (not component selection)
         
-{'percent': [100], 'n_components': [336], 'Mean Score in test': [0.7672913328169106], 'Std Score in test': [0.0], 'Mean Training Time': [0.004525899887084961], 'Std Training Time': [0.0], 'Mean Best Score in CV': [0.8026817475236875], 'Std Best Score in CV': [0.0], 'cv_mean_test_score': [0.8026817475236875], 'cv_std_test_score': [0.03568055169667298]}
-{'percent': [100], 'n_components': [336], 'Score in test': [0.7672913328169106], 'Training Time': [0.004525899887084961], 'Best Parameters': [{'regressor__kernel_svm__C': 1000.0, 'regressor__kernel_svm__gamma': 6.103515625e-05}], 'Best Score in CV': [0.8026817475236875], 'cv_mean_test_score': [0.8026817475236875], 'cv_std_test_score': [0.03568055169667298]}
+{'percent': [100], 'n_components': [336], 'Mean Score in test': [0.7672913328168345], 'Std Score in test': [0.0], 'Mean Training Time': [0.0260009765625], 'Std Training Time': [0.0], 'Mean Best Score in CV': [0.8026817475236998], 'Std Best Score in CV': [0.0], 'cv_mean_test_score': [0.8026817475236998], 'cv_std_test_score': [0.03568055169670836]}
+{'percent': [100], 'n_components': [336], 'Score in test': [0.7672913328168345], 'Training Time': [0.0260009765625], 'Best Parameters': [{'regressor__kernel_svm__C': 1000.0, 'regressor__kernel_svm__gamma': 6.103515625e-05}], 'Best Score in CV': [0.8026817475236998], 'cv_mean_test_score': [0.8026817475236998], 'cv_std_test_score': [0.03568055169670836]}

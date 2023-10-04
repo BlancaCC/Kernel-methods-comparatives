@@ -1,0 +1,12 @@
+
+    --------------------
+    'Model: Kernel SVM 
+    	Dataset: a5a (classification) of shape (6414, 123) 	CV: 5 	n_jobs: 5
+    	 params: {'kernel_svm__C': array([1.e-02, 1.e-01, 1.e+00, 1.e+01, 1.e+02, 1.e+03, 1.e+04]), 'kernel_svm__gamma': array([7.93953252e-06, 8.98255566e-05, 1.01626016e-03, 1.14976712e-02,
+       1.30081301e-01])} 
+    	 number of hyperparameter 35
+    
+        All de dataset is used (not component selection)
+        
+{'percent': [100], 'n_components': [6414], 'Mean Score in test': [0.8438826634030673], 'Std Score in test': [0.0], 'Mean Training Time': [2.678229331970215], 'Std Training Time': [0.0], 'Mean Best Score in CV': [0.8428435937125716], 'Std Best Score in CV': [0.0], 'cv_mean_test_score': [0.8428435937125716], 'cv_std_test_score': [0.008216639795499135]}
+{'percent': [100], 'n_components': [6414], 'Score in test': [0.8438826634030673], 'Training Time': [2.678229331970215], 'Best Parameters': [{'kernel_svm__C': 1000.0, 'kernel_svm__gamma': 7.939532520325204e-06}], 'Best Score in CV': [0.8428435937125716], 'cv_mean_test_score': [0.8428435937125716], 'cv_std_test_score': [0.008216639795499135]}
