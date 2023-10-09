@@ -31,6 +31,15 @@ def sort_dataframe_by(df, column, ascending, ranking_size = False):
     return df.sort_values(by=column, ascending=ascending).head(ranking_size)
 
 
+def save_dataframe_as_latex(dataframe, file_path, name):
+        try:
+            rute = f'{file_path}{name}.tex'
+            latex_table = dataframe.to_latex(index=False)
+            with open(rute, 'w') as f:
+                f.write(latex_table)
+            print(f"DataFrame saved as LaTeX table to {rute}")
+        except Exception as e:
+            print(f"An error occurred: {e}")
 
 if __name__ == '__main__':
 
@@ -45,3 +54,5 @@ if __name__ == '__main__':
         print("Training Time:", training_time)
         print("Accuracy in Test:", accuracy)
         print('')
+
+    

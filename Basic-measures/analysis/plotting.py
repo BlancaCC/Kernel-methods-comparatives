@@ -97,8 +97,8 @@ def view_plots_and_save_them(df_list:list, df_list_names:list, names_of_std_for_
                           columns:list, database:str, plot_path:str,
                           percent_of_n_components_bigger_than = 0):
     for column in columns:
-        title = f"{type}_{column.replace(' ', '_')}_{database}"
-        title += f'_starting_at_{percent_of_n_components_bigger_than}_percent'
+        title = f"{type} {column} {database}"
+        title += f' starting at {percent_of_n_components_bigger_than} percent'
 
         constant_lines = df_list[0][column].to_list()
         if names_of_std_for_column[column] == False:
@@ -110,7 +110,7 @@ def view_plots_and_save_them(df_list:list, df_list_names:list, names_of_std_for_
                          names_of_std_for_column,
                         constant_lines, constant_labels, constant_std,
                         percent_of_n_components_bigger_than=percent_of_n_components_bigger_than)
-        save_route =  plot_path+ title
+        save_route =  plot_path+ title.replace(' ', '-')
         # Guarda el gráfico en la ubicación especificada por save_path
         plt.savefig(save_route, bbox_inches='tight')  # bbox_inches='tight' ajusta los márgenes para que se ajusten correctamente
         #plot_comparatives(column, 
