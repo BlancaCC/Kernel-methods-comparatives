@@ -1,0 +1,12 @@
+
+    --------------------
+    'Model: Kernel SVR 
+    	Dataset: abalone (regression) of shape (4177, 8) 	CV: 5 	n_jobs: 5
+    	 params: {'regressor__kernel_svm__C': array([1.e-02, 1.e-01, 1.e+00, 1.e+01, 1.e+02, 1.e+03, 1.e+04]), 'regressor__kernel_svm__gamma': array([1.22070312e-04, 1.38106793e-03, 1.56250000e-02, 1.76776695e-01,
+       2.00000000e+00])} 
+    	 number of hyperparameter 35
+    
+        All de dataset is used (not component selection)
+        
+{'percent': [100], 'n_components': [4177], 'Mean Score in test': [0.5149075846209643], 'Std Score in test': [0.09117441195027495], 'Mean Training Time': [1.2978508472442627], 'Std Training Time': [0.9073129408966636], 'Mean Best Score in CV': [0.5616491689293317], 'Std Best Score in CV': [0.009248052586205329], 'cv_mean_test_score': [0.5616491689293317], 'cv_std_test_score': [0.024097868767924753], 'cv_mean_fit_time': [0.9692522764205932], 'cv_std_fit_time': [0.1203510947964991]}
+{'percent': [100, 100, 100, 100], 'n_components': [4177, 4177, 4177, 4177], 'Score in test': [0.5495066827814317, 0.35894002707774675, 0.5890633678962452, 0.5621202607284335], 'Training Time': [0.9768161773681641, 2.855243444442749, 0.675107479095459, 0.6842362880706787], 'Best Parameters': [{'regressor__kernel_svm__C': 100.0, 'regressor__kernel_svm__gamma': 0.015625}, {'regressor__kernel_svm__C': 10000.0, 'regressor__kernel_svm__gamma': 0.0013810679320049757}, {'regressor__kernel_svm__C': 1.0, 'regressor__kernel_svm__gamma': 0.1767766952966369}, {'regressor__kernel_svm__C': 1.0, 'regressor__kernel_svm__gamma': 0.1767766952966369}], 'Best Score in CV': [0.5712433550284043, 0.566571503610365, 0.5466299990193348, 0.5621518180592229], 'cv_mean_test_score': [0.5712433550284043, 0.566571503610365, 0.5466299990193348, 0.5621518180592229], 'cv_std_test_score': [0.03287485766901376, 0.026689439357529, 0.00962503053507415, 0.027202147510082108], 'cv_mean_fit_time': [0.8368422031402588, 1.9884385108947753, 0.5197946071624756, 0.5319337844848633], 'cv_std_fit_time': [0.15235076572503237, 0.17664835496517217, 0.08818049445576866, 0.06422476404002321]}

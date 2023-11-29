@@ -1,0 +1,2 @@
+mean-refit-time-mean,mean-refit-time-std,training-time-mean,training-time-std,prediction-time-mean,prediction-time-std,score-in-test-mean,score-in-test-std
+0.5088252425193787,0.5088252425193787,193.57214319705963,62.37209298364134,116.0051760673523,0.2855156128704978,0.7955788426970589,0.0026773079641055635

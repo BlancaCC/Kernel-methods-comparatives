@@ -38,7 +38,7 @@ colours = colours[3:]
 def get_comparatives(column:str, df_with_n_components, df_labels:list, title:str, 
                      names_of_std_for_column:dict, 
                      constant_lines = [], constant_labels = [], constant_std = [], 
-                     log_scale  = False, constant_margin = 0.001, marker = '',
+                     log_scale  = False, constant_margin = 0.001, marker = 'o',
                      percent_of_n_components_bigger_than = 0, 
                      column_x = "percent", axis_x_name = 'n_components in %'):
 

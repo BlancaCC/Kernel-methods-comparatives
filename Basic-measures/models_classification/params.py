@@ -97,7 +97,7 @@ def function_param_grid_random_Fourier_features_svc(dimension:int, K:int, bias: 
     gamma_space = np.logspace(start, end, num, base=base) / dimension
     return {
         f'{name_pipeline.fourier_random_features}__gamma' : list(gamma_space),
-        f'{name_pipeline.svm}__C' : np.logspace(-4, 2, num, base=10)
+        f'{name_pipeline.svm}__C' : np.logspace(-3, 6, num, base=10)
     }
 
 

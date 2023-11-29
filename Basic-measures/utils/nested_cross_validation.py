@@ -75,6 +75,9 @@ def nested_cross_validation(X,y,grid_search, k, score_function, X_test, y_test):
         cv_results['cv_std_test_score'].append(grid_search.cv_results_['std_test_score'][best_index])
         cv_results['cv_mean_fit_time'].append(grid_search.cv_results_['mean_fit_time'][best_index])
         cv_results['cv_std_fit_time'].append(grid_search.cv_results_['std_fit_time'][best_index])
+        if X_test == False:
+            cv_results['cv_std_test_score'][-1] = 0
+
     results = {
         "Mean Score in test" :[np.mean(cv_results["Score in test"])],
         "Std Score in test" :[np.std(cv_results["Score in test"])],

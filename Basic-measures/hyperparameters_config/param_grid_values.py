@@ -1,7 +1,7 @@
 import warnings
 import numpy as np
 # Number from random features
-percent = [*list(map(int,np.linspace(1, 25, 16)))]
+percent = [*list(map(int,np.linspace(1, 20, 20)))]
 
 def get_n_components_list(n_rows:int)->list:
         '''Gives the numbers of components 
