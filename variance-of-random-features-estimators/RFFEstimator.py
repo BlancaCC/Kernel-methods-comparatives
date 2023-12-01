@@ -1,3 +1,14 @@
+#####################################################################################
+# RFF Estimator with less variance and error than sklearn implementation
+# Example of use:
+# 
+# >>> X = np.random.rand(10,5)
+# >>> n_components = 3
+# >>> RFF = RFFEstimator(gamma=0.5, n_components=n_components)
+# >>> RFF.fit(X)
+# >>> RFF.transform(X)
+#
+#####################################################################################
 import scipy.sparse as sp
 import numpy as np
 
@@ -44,16 +55,3 @@ class RFFEstimator(RBFSampler):
         projections = np.concatenate((np.cos(projection), np.sin(projection)), axis=1)
         projections *= (2.0 / self.n_components) ** 0.5
         return projections
-
-
-if __name__ == '__main__':
-    X = np.random.rand(10,5)
-    n_components =3
-    RFF = RFFEstimator(gamma=0.5, n_components=n_components)
-
-    print('Fit')
-    fit = RFF.fit(X)
-    print(fit)
-    print('Transform')
-    t = RFF.transform(X)
-    print(t)
