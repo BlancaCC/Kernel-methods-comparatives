@@ -1,0 +1,13 @@
+
+    --------------------
+    'Model: Kernel ridge regression 
+    	Dataset: abalone (regression) of shape (4177, 8) 	CV: 5 	n_jobs: 5
+    	 params: {'regressor__kernel_ridge__gamma': array([1.22070312e-04, 8.50147034e-04, 5.92076784e-03, 4.12346222e-02,
+       2.87174589e-01, 2.00000000e+00]), 'regressor__kernel_ridge__alpha': array([1.00000000e-04, 1.58489319e-03, 2.51188643e-02, 3.98107171e-01,
+       6.30957344e+00, 1.00000000e+02])} 
+    	 number of hyperparameter 36
+    
+        All de dataset is used (not component selection)
+        
+{'percent': [100], 'n_components': [4177], 'Mean Score in test': [0.5800387576326449], 'Std Score in test': [0.02602493872211568], 'Mean Training Time': [0.8948042392730713], 'Std Training Time': [0.04770507599082232], 'Mean Best Score in CV': [0.5747814849384062], 'Std Best Score in CV': [0.00991748793910017], 'cv_mean_test_score': [0.5747814849384062], 'cv_std_test_score': [0.024770280432057496], 'cv_mean_fit_time': [0.8454274535179138], 'cv_std_fit_time': [0.15198370058219646]}
+{'percent': [100, 100, 100, 100], 'n_components': [4177, 4177, 4177, 4177], 'Score in test': [0.5635549097623402, 0.5630107930104744, 0.6249549207483507, 0.5686344070094144], 'Training Time': [0.8450443744659424, 0.9053976535797119, 0.96799635887146, 0.8607785701751709], 'Best Parameters': [{'regressor__kernel_ridge__alpha': 0.025118864315095794, 'regressor__kernel_ridge__gamma': 0.0412346222116529}, {'regressor__kernel_ridge__alpha': 0.025118864315095794, 'regressor__kernel_ridge__gamma': 0.0412346222116529}, {'regressor__kernel_ridge__alpha': 0.025118864315095794, 'regressor__kernel_ridge__gamma': 0.0412346222116529}, {'regressor__kernel_ridge__alpha': 0.025118864315095794, 'regressor__kernel_ridge__gamma': 0.0412346222116529}], 'Best Score in CV': [0.5838573251449294, 0.579539132651347, 0.5580479826831619, 0.5776814992741862], 'cv_mean_test_score': [0.5838573251449294, 0.579539132651347, 0.5580479826831619, 0.5776814992741862], 'cv_std_test_score': [0.03535989378322995, 0.02984478800088033, 0.0078018071435732314, 0.026074632800546473], 'cv_mean_fit_time': [0.8765383720397949, 0.8461837768554688, 0.8138095378875733, 0.8451781272888184], 'cv_std_fit_time': [0.1946509751981689, 0.15593958070598515, 0.1904348293329389, 0.06690941709169279]}

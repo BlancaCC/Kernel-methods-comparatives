@@ -1,0 +1,13 @@
+
+    --------------------
+    'Model: Kernel ridge regression 
+    	Dataset: eunite2001 (regression) of shape (336, 16) 	CV: 5 	n_jobs: 5
+    	 params: {'regressor__kernel_ridge__gamma': array([6.10351562e-05, 4.25073517e-04, 2.96038392e-03, 2.06173111e-02,
+       1.43587294e-01, 1.00000000e+00]), 'regressor__kernel_ridge__alpha': array([1.00000000e-04, 1.58489319e-03, 2.51188643e-02, 3.98107171e-01,
+       6.30957344e+00, 1.00000000e+02])} 
+    	 number of hyperparameter 36
+    
+        All de dataset is used (not component selection)
+        
+{'percent': [100], 'n_components': [336], 'Mean Score in test': [0.7836433229303583], 'Std Score in test': [0.0], 'Mean Training Time': [0.02904224395751953], 'Std Training Time': [0.0], 'Mean Best Score in CV': [0.8099888916741531], 'Std Best Score in CV': [0.0], 'cv_mean_test_score': [0.8099888916741531], 'cv_std_test_score': [0.03544215161633318], 'cv_mean_fit_time': [0.006893539428710937], 'cv_std_fit_time': [0.0009462956679779372]}
+{'percent': [100], 'n_components': [336], 'Score in test': [0.7836433229303583], 'Training Time': [0.02904224395751953], 'Best Parameters': [{'regressor__kernel_ridge__alpha': 0.025118864315095794, 'regressor__kernel_ridge__gamma': 0.0029603839189656206}], 'Best Score in CV': [0.8099888916741531], 'cv_mean_test_score': [0.8099888916741531], 'cv_std_test_score': [0.03544215161633318], 'cv_mean_fit_time': [0.006893539428710937], 'cv_std_fit_time': [0.0009462956679779372]}

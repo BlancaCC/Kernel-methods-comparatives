@@ -1,0 +1,12 @@
+
+    --------------------
+    'Model: Kernel SVR 
+    	Dataset: CPU_SMALL (regression) of shape (8192, 12) 	CV: 5 	n_jobs: 5
+    	 params: {'regressor__kernel_svm__C': array([1.e-02, 1.e-01, 1.e+00, 1.e+01, 1.e+02, 1.e+03, 1.e+04]), 'regressor__kernel_svm__gamma': array([8.13802083e-05, 9.20711955e-04, 1.04166667e-02, 1.17851130e-01,
+       1.33333333e+00])} 
+    	 number of hyperparameter 35
+    
+        All de dataset is used (not component selection)
+        
+{'percent': [100], 'n_components': [8192], 'Mean Score in test': [0.9720637522867458], 'Std Score in test': [0.0025902171857631463], 'Mean Training Time': [5.189131140708923], 'Std Training Time': [0.13545716925806647], 'Mean Best Score in CV': [0.9703099509095028], 'Std Best Score in CV': [0.0007987298160681411], 'cv_mean_test_score': [0.9703099509095028], 'cv_std_test_score': [0.0025491556388097824], 'cv_mean_fit_time': [5.352617728710174], 'cv_std_fit_time': [1.1015567172659322]}
+{'percent': [100, 100, 100, 100], 'n_components': [8192, 8192, 8192, 8192], 'Score in test': [0.9695167861688423, 0.9730362387425351, 0.9758646809589113, 0.9698373032766944], 'Training Time': [5.213310480117798, 5.0520477294921875, 5.399927616119385, 5.091238737106323], 'Best Parameters': [{'regressor__kernel_svm__C': 100.0, 'regressor__kernel_svm__gamma': 0.010416666666666666}, {'regressor__kernel_svm__C': 100.0, 'regressor__kernel_svm__gamma': 0.010416666666666666}, {'regressor__kernel_svm__C': 100.0, 'regressor__kernel_svm__gamma': 0.010416666666666666}, {'regressor__kernel_svm__C': 100.0, 'regressor__kernel_svm__gamma': 0.010416666666666666}], 'Best Score in CV': [0.971301251052936, 0.9694161923937094, 0.9696424556688094, 0.9708799045225562], 'cv_mean_test_score': [0.971301251052936, 0.9694161923937094, 0.9696424556688094, 0.9708799045225562], 'cv_std_test_score': [0.003577517861408716, 0.0025306616501727637, 0.0021777869253704445, 0.001910656118287205], 'cv_mean_fit_time': [5.281818628311157, 5.305899524688721, 5.571991300582885, 5.250761461257935], 'cv_std_fit_time': [1.0887651769792845, 1.0903959548209123, 1.1820859739359135, 1.0449797633276179]}
